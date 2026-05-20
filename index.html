@@ -281,7 +281,6 @@
             background-color: transparent !important;
         }
         
-        /* Modal Custom Styling to Match Theme */
         .modal-content ul {
             padding-left: 20px;
             margin-top: 10px;
@@ -298,6 +297,130 @@
         }
         
         @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+
+        /* --- CHATBOT CUSTOM STYLES --- */
+        .chatbot-launcher {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .chatbot-launcher:hover {
+            transform: scale(1.1);
+        }
+        .chatbot-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 480px;
+            background: var(--card-dark);
+            border: 2px solid #2d3748;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+        }
+        .chatbot-header {
+            background: linear-gradient(135deg, #1e1b4b, #131926);
+            border-bottom: 1px solid #2d3748;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .chatbot-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .chat-bubble {
+            padding: 10px 14px;
+            border-radius: 15px;
+            max-width: 80%;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .chat-bubble.bot {
+            background: #1e293b;
+            color: var(--text-white);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        .chat-bubble.user {
+            background: #6366f1;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        .chatbot-input-area {
+            border-top: 1px solid #2d3748;
+            padding: 10px;
+            display: flex;
+            gap: 8px;
+            background: #0d131f;
+        }
+        .chatbot-input {
+            flex: 1;
+            background: #1e293b;
+            border: 1px solid #4b5563;
+            color: white;
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+        .chatbot-input:focus {
+            outline: none;
+            border-color: var(--primary-glow);
+        }
+        .chatbot-send-btn {
+            background: var(--primary-glow);
+            border: none;
+            color: white;
+            border-radius: 10px;
+            width: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .suggested-hints {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        .hint-btn {
+            background: rgba(129, 140, 248, 0.1);
+            border: 1px solid rgba(129, 140, 248, 0.3);
+            color: #a5b4fc;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .hint-btn:hover {
+            background: var(--primary-glow);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -408,7 +531,7 @@
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-comment-dollar"></i></div>
                     <h4 id="f2_t">ಸ್ಮಾರ್ಟ್ ವಾಟ್ಸಾಪ್ ರಸೀದಿಗಳು</h4>
-                    <p id="f2_d">ಯಾವುದೇ ಮ್ಯಾನುವಲ್ ಮೆಸೇಜ್ ಬೇಡ. ಒಂದೇ ಕ್ಲಿಕ್‌ನಲ್ಲಿ ಸುಂದರವಾದ ಡಿಜಿಟಲ್ ಪಾವತಿ ರಸೀದಿಗಳು ಮತ್ತು ಬಾಕಿ ಅಲರ್ಟ್‌ಗಳು ನೇರವಾಗಿ ವಿದ್ಯಾರ್ಥಿಗಳ ವಾಟ್ಸಾಪ್ ನಂಬರ್‌ಗೆ تಲುಪುತ್ತವೆ.</p>
+                    <p id="f2_d">ಯಾವುದೇ ಮ್ಯಾನುವಲ್ ಮೆಸೇಜ್ ಬೇಡ. ಒಂದೇ ಕ್ಲಿಕ್‌ನಲ್ಲಿ ಸುಂದರವಾದ ಡಿಜಿಟಲ್ ಪಾವತಿ ರಸೀದಿಗಳು ಮತ್ತು ಬಾಕಿ ಅಲರ್ಟ್‌ಗಳು ನೇರವಾಗಿ ವಿದ್ಯಾರ್ಥಿಗಳ ವಾಟ್ಸಾಪ್ ನಂಬರ್‌ಗೆ ತಲುಪುತ್ತವೆ.</p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -610,7 +733,7 @@
                         </h2>
                         <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                             <div class="accordion-body text-light" style="line-height: 1.7;" id="q2_d">
-                                ಇಲ್ಲ, ನಿಮ್ಮ ಮಂತ್ಲಿ ಲೈಸೆನ್ಸ್ ಪ್ಯಾಕೇಜ್‌ನಲ್ಲೇ ಆಟೋಮೇಟೆಡ್ ವಾಟ್ಸಾಪ್ ರಸೀದಿಗಳು ಮತ್ತು ಡ್ಯೂ ನೋಟಿಫಿಕೇಶನ್‌ಗಳ ಎಂಜಿನ್ ಇಂಟಿಗ್ರೇಟ್ ಆಗಿರುತ್ತದೆ. ಯಾವುದೇ ಹಿಡನ್ چಾರ್ಜಸ್ ಇರುವುದಿಲ್ಲ.
+                                ಇಲ್ಲ, ನಿಮ್ಮ ಮಂತ್ಲಿ ಲೈಸೆನ್ಸ್ ಪ್ಯಾಕೇಜ್‌ನಲ್ಲೇ ಆಟೋಮೇಟೆಡ್ ವಾಟ್ಸಾಪ್ ರಸೀದಿಗಳು ಮತ್ತು ಡ್ಯೂ ನೋಟಿಫಿಕೇಶನ್‌ಗಳ ಎಂಜಿನ್ ಇಂಟಿಗ್ರೇಟ್ ಆಗಿರುತ್ತದೆ. ಯಾವುದೇ ಹಿಡನ್ ಚಾರ್ಜಸ್ ಇರುವುದಿಲ್ಲ.
                             </div>
                         </div>
                     </div>
@@ -683,6 +806,30 @@
     </div>
 </footer>
 
+<div class="chatbot-launcher" id="chatLauncher" onclick="toggleChatbot()">
+    <i class="fas fa-comments"></i>
+</div>
+
+<div class="chatbot-container" id="chatContainer">
+    <div class="chatbot-header">
+        <div class="d-flex align-items-center gap-2">
+            <i class="fas fa-robot text-indigo" style="color: #818cf8; font-size: 20px;"></i>
+            <div>
+                <h6 class="mb-0 fw-bold text-white" id="botTitle">HUDKO AI ಬೋಟ್</h6>
+                <small style="color: #34d399; font-size: 11px;">⚡ ಆನ್‌ಲೈನ್‌ನಲ್ಲಿದೆ</small>
+            </div>
+        </div>
+        <button onclick="toggleChatbot()" style="background:none; border:none; color:white; font-size: 18px; cursor:pointer;">&times;</button>
+    </div>
+    <div class="chatbot-messages" id="chatMessages"></div>
+    <div class="chatbot-input-area">
+        <input type="text" class="chatbot-input" id="chatInput" placeholder="ಪ್ರಶ್ನೆ ಕೇಳಿ... / Type message..." onkeypress="handleChatKeypress(event)">
+        <button class="chatbot-send-btn" onclick="sendUserMessage()">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
+
 <div class="modal fade" id="aboutModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content" style="background-color: #131926; border: 2px solid #2d3748; color: #ffffff; border-radius: 20px; text-align: left;">
@@ -690,8 +837,7 @@
                 <h5 class="modal-title fw-bold" id="aboutModalTitle" style="color: #818cf8;"><i class="fas fa-info-circle me-2"></i> ನಮ್ಮ ಬಗ್ಗೆ / About Us</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="aboutModalBody" style="line-height: 1.8; font-size: 15px; max-height: 60vh; overflow-y: auto;">
-                </div>
+            <div class="modal-body" id="aboutModalBody" style="line-height: 1.8; font-size: 15px; max-height: 60vh; overflow-y: auto;"></div>
             <div class="modal-footer" style="border-top: 1px solid #2d3748;">
                 <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal" style="width: auto; padding: 8px 20px;">Close</button>
             </div>
@@ -706,8 +852,7 @@
                 <h5 class="modal-title fw-bold" id="privacyModalTitle" style="color: #34d399;"><i class="fas fa-user-shield me-2"></i> ಗೌಪ್ಯತಾ ನೀತಿ / Privacy Policy</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="privacyModalBody" style="line-height: 1.8; font-size: 15px; max-height: 60vh; overflow-y: auto;">
-                </div>
+            <div class="modal-body" id="privacyModalBody" style="line-height: 1.8; font-size: 15px; max-height: 60vh; overflow-y: auto;"></div>
             <div class="modal-footer" style="border-top: 1px solid #2d3748;">
                 <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal" style="width: auto; padding: 8px 20px;">Close</button>
             </div>
@@ -722,8 +867,7 @@
                 <h5 class="modal-title fw-bold" id="securityModalTitle" style="color: #ef4444;"><i class="fas fa-user-lock me-2"></i> ಡೇಟಾ ಸೆಕ್ಯುರಿಟಿ / Data Security</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="securityModalBody" style="line-height: 1.8; font-size: 15px; max-height: 60vh; overflow-y: auto;">
-                </div>
+            <div class="modal-body" id="securityModalBody" style="line-height: 1.8; font-size: 15px; max-height: 60vh; overflow-y: auto;"></div>
             <div class="modal-footer" style="border-top: 1px solid #2d3748;">
                 <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal" style="width: auto; padding: 8px 20px;">Close</button>
             </div>
@@ -738,14 +882,14 @@
                 <h5 class="modal-title fw-bold" id="termsModalTitle" style="color: #fbbf24;"><i class="fas fa-file-invoice me-2"></i> ಷರತ್ತುಗಳು / Terms & Conditions</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="termsModalBody" style="line-height: 1.8; font-size: 15px; max-height: 60vh; overflow-y: auto;">
-                </div>
+            <div class="modal-body" id="termsModalBody" style="line-height: 1.8; font-size: 15px; max-height: 60vh; overflow-y: auto;"></div>
             <div class="modal-footer" style="border-top: 1px solid #2d3748;">
                 <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal" style="width: auto; padding: 8px 20px;">Close</button>
             </div>
         </div>
     </div>
 </div>
+
 <script>
     let currentBillingCycle = 'monthly';
 
@@ -802,8 +946,6 @@
             footBtn: "Connect and Request Live Demo via WhatsApp",
             toggleMonthly: "Monthly Plan",
             toggleLifetime: "Lifetime Plan (One-time)",
-            
-            // Framework Additions
             footBrandDesc: "HUDKO ULTRA ERP 2026 is a premium cloud architecture built to digitize, secure, and fully automate PG & hostel ecosystem workflows across Karnataka.",
             footLinksTitle: "<i class='fas fa-shield-halved'></i> Information & Framework Rules",
             linkAbout: "<i class='fas fa-info-circle me-2 text-primary'></i> About Us",
@@ -812,7 +954,6 @@
             linkTerms: "<i class='fas fa-file-invoice me-2 text-warning'></i> Terms & Conditions",
             footCopy: "All Rights Reserved.",
             footSupportText: "For Live Demos & Technical Support:",
-            
             aboutContent: `<h3>Who We Are</h3><p>HUDKO ULTRA ERP (Operating Framework 2026) is India's leading automation matrix tailored exclusively for paying guest facilities, co-living hubs, and student housing infrastructure. Our vision is to eliminate manual errors, mitigate financial leakage, and establish complete digital command nodes for multi-property realtors.</p><h3>Our Capabilities</h3><p>From automated cryptographic client onboarding to localized server nodes in Karnataka, we ensure seamless operational excellence and unmatched system longevity.</p>`,
             privacyContent: `<h3>Data Sovereignty & Security Policy</h3><p>At HUDKO ULTRA ERP, data security is non-negotiable. Tenant structural records, dynamic biometric logs, facial credentials, and continuous monetary transacting histories are completely sandboxed using advanced standard encryption pipelines.</p><ul><li><b>Zero Leakage Policy:</b> No localized merchant files or mobile hashes are sold or rented to third-party ad networks.</li><li><b>WhatsApp Channels:</b> Alert signals are dispatched safely via officially protected cloud network nodes.</li></ul>`,
             securityContent: `<h3>Enterprise Security Architecture</h3><p>HUDKO ULTRA ERP utilizes state-of-the-art protection parameters to safeguard your property asset data ecosystem.</p><ul><li><b>AES-256 Bit Encryption:</b> All financial ledgers and resident database metrics are securely encrypted.</li><li><b>Automatic Cloud Backups:</b> Real-time server nodes clone active states every 60 seconds to mitigate accidental physical data breakdown.</li><li><b>DDoS Shielding:</b> Our secure firewall prevents brute-force login breaches or malicious botnets attacks.</li></ul>`,
@@ -828,7 +969,7 @@
             heroBtnSub: "ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
             s1: "ಕ್ಲೌಡ್  ಅಪ್ಟೈಮ್ ಗ್ಯಾರಂಟಿ", s2: "ವಾಟ್ಸಾಪ್ ಬಿಲ್ಲಿಂಗ್ ಅಲರ್ಟ್", s3: "AI-Based ಮುನ್ಸೂಚನೆ", s4: "ಗ್ಲೋಬಲ್ ಡಿಫಾಲ್ಟರ್ ನೆಟ್‌ವರ್ಕ್",
             featSecTitle: "ಅಪ್ರತಿಮ ಹಾರ್ಡ್‌ವೇರ್ ಮತ್ತು ಸಾಫ್ಟ್‌ವೇರ್ ಶಕ್ತಿ",
-            featSecDesc: "ಯಾವುದೇ ಸಾಮಾನ್ಯ ಸಾಫ್ಟ್‌ವೇರ್ ನೀಡದ ಅತ್ಯಂತ ಮುಂದುವರಿದ ಎಂಟರ್‌ಪ್ರೈಸ್ ಕಂಟ್ರೋಲ್ಸ್ ಇಲ್ಲಿದೆ.",
+            featSecDesc: "ಯಾವುದು ಸಾಮಾನ್ಯ ಸಾಫ್ಟ್‌ವೇರ್ ನೀಡದ ಅತ್ಯಂತ ಮುಂದುವರಿದ ಎಂಟರ್‌ಪ್ರೈಸ್ ಕಂಟ್ರೋಲ್ಸ್ ಇಲ್ಲಿದೆ.",
             f1t: "ಮಲ್ಟಿ-ಬ್ರಾಂಚ್ ಸಿಂಕ್ ನೆಟ್‌ವರ್ಕ್", f1d: "ಮಣಿಪಾಲ್, ಉಡುಪಿ ಅಥವಾ ಕರ್ನಾಟಕದ ಯಾವುದೇ ಮೂಲೆಯಲ್ಲಿದ್ದರೂ ನಿಮ್ಮ ಎಲ್ಲಾ ಪಿಜಿ ಬ್ರಾಂಚ್‌ಗಳ ಕಂಪ್ಲೀಟ್ ಕಂಟ್ರೋಲ್ ಒಂದೇ ಲಾಗಿನ್‌ನಲ್ಲಿ ಸಿಗುತ್ತದೆ.",
             f2t: "ಸ್ಮಾರ್ಟ್ ವಾಟ್ಸಾಪ್ ರಸೀದಿಗಳು", f2d: "ಯಾವುದೇ ಮ್ಯಾನುವಲ್ ಮೆಸೇಜ್ ಬೇಡ. ಒಂದೇ ಕ್ಲಿಕ್‌ನಲ್ಲಿ ಸುಂದರವಾದ ಡಿಜಿಟಲ್ ಪಾವತಿ ರಸೀದಿಗಳು ಮತ್ತು ಬಾಕಿ ಅಲರ್ಟ್‌ಗಳು ನೇರವಾಗಿ ವಿದ್ಯಾರ್ಥಿಗಳ ವಾಟ್ಸಾಪ್ ನಂಬರ್‌ಗೆ ತಲುಪುತ್ತವೆ.",
             f3t: "ಗ್ಲೋಬಲ್ ಬ್ಲಾಕ್‌ಲಿಸ್ಟ್ ಫೈರ್‌ವಾಲ್", f3d: "ಬಾಡಿಗೆ ಕಟ್ಟದೆ ಮೋಸ ಮಾಡಿ ಓಡಿಹೋಗುವ ಫ್ರಾಡ್ಸ್ ಮತ್ತು ಡಿಫಾಲ್ಟರ್‌ಗಳ ಸುರಕ್ಷಿತ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿದ ಐಡಿ ಟೋಕನ್ ನೆಟ್‌ವರ್ಕ್ ಅನ್ನು ಇಡೀ ಸೆಂಟ್ರಲ್ ಹಬ್‌ನಲ್ಲಿ ತಕ್ಷಣ ಬ್ಲಾಕ್ ಮಾಡಿ.",
@@ -857,8 +998,6 @@
             footBtn: "WhatsApp ಮೂಲಕ ಲೈವ್ ಡೆಮೊ ಪಡೆಯಿರಿ",
             toggleMonthly: "Monthly Plan",
             toggleLifetime: "Lifetime Plan (One-time)",
-            
-            // Framework Additions
             footBrandDesc: "HUDKO ULTRA ERP 2026 ಎಂಬುದು ಕರ್ನಾಟಕದ ಪಿಜಿ ಮತ್ತು ಹಾಸ್ಟೆಲ್ ಮಾಲೀಕರಿಗಾಗಿಯೇ ರೂಪಿಸಲಾದ ಅತ್ಯಾಧುನಿಕ ಕ್ಲೌಡ್ ಆಟೋಮೇಷನ್ ಸಾಫ್ಟ್‌ವೇರ್ ಆಗಿದೆ.",
             footLinksTitle: "<i class='fas fa-shield-halved'></i> ಮಾಹಿತಿ ಮತ್ತು ನಿಯಮಗಳು",
             linkAbout: "<i class='fas fa-info-circle me-2 text-primary'></i> ನಮ್ಮ ಬಗ್ಗೆ (About Us)",
@@ -867,15 +1006,13 @@
             linkTerms: "<i class='fas fa-file-invoice me-2 text-warning'></i> ಷರತ್ತುಗಳು (Terms & Conditions)",
             footCopy: "ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",
             footSupportText: "ಡೆಮೊ ಮತ್ತು ತಾಂತ್ರಿಕ ಬೆಂಬಲಕ್ಕಾಗಿ:",
-            
-            aboutContent: `<h3>ನಾವು ಯಾರು?</h3><p>HUDKO ULTRA ERP (2026 ಆವೃತ್ತಿ) ಭಾರತದ ಅತ್ಯಂತ ಮುಂದುವರಿದ ಪಿಜಿ, ಹಾಸ್ಟೆಲ್ ಮತ್ತು ಕೋ-ಲಿವಿಂಗ್ ಮ್ಯಾನೇಜ್ಮೆಂಟ್ ಸಾಫ್ಟ್‌ವೇರ್ ಆಗಿದೆ. ಮ್ಯಾನುವಲ್ ಕೆಲಸ ಮತ್ತು ಹಣದ ಸೋರಿಕೆಯನ್ನು ಸಂಪೂರ್ಣವಾಗಿ تಡೆಗಟ್ಟಿ, ಮಾಲೀಕರಿಗೆ ತಮ್ಮ ಎಲ್ಲಾ ಬ್ರಾಂಚ್‌ಗಳ ಮೇಲೆ ಸಂಪೂರ್ಣ ಡಿಜಿಟಲ್ ನಿಯಂತ್ರಣ ಒದಗಿಸುವುದು ನಮ್ಮ ಧ್ಯೇಯವಾಗಿದೆ.</p><h3>ನಮ್ಮ ಸಾಮರ್ಥ್ಯ</h3><p>ಕರ್ನಾಟಕದ ಪ್ರಮುಖ ಶೈಕ್ಷಣಿಕ ಹಬ್‌ಗಳಾದ ಮಣಿಪಾಲ್, ಮಂಗಳೂರು ಮತ್ತು ಬೆಂಗಳೂರಿನ ನೂರಾರು ಪಿಜಿ ಮಾಲೀಕರು ನಮ್ಮ ಸುರಕ್ಷಿತ ಕ್ಲೌಡ್ ಡೇಟಾ ನೆಟ್‌ವರ್ಕ್ ಅನ್ನು ನಂಬಿದ್ದಾರೆ.</p>`,
+            aboutContent: `<h3>ನಾವು ಯಾರು?</h3><p>HUDKO ULTRA ERP (2026 ಆವೃತ್ತಿ) ಭಾರತದ ಅತ್ಯಂತ ಮುಂದುವರಿದ ಪಿಜಿ, ಹಾಸ್ಟೆಲ್ ಮತ್ತು ಕೋ-ಲಿವಿಂಗ್ ಮ್ಯಾನೇಜ್ಮೆಂಟ್ ಸಾಫ್ಟ್‌ವೇರ್ ಆಗಿದೆ. ಮ್ಯಾನುವಲ್ ಕೆಲಸ ಮತ್ತು ಹಣದ ಸೋರಿಕೆಯನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ತಡೆಗಟ್ಟಿ, ಮಾಲೀಕರಿಗೆ ತಮ್ಮ ಎಲ್ಲಾ ಬ್ರಾಂಚ್‌ಗಳ ಮೇಲೆ ಸಂಪೂರ್ಣ ಡಿಜಿಟಲ್ ನಿಯಂತ್ರಣ ಒದಗಿಸುವುದು ನಮ್ಮ ಧ್ಯೇಯವಾಗಿದೆ.</p><h3>ನಮ್ಮ ಸಾಮರ್ಥ್ಯ</h3><p>ಕರ್ನಾಟಕದ ಪ್ರಮುಖ ಶೈಕ್ಷಣಿಕ ಹಬ್‌ಗಳಾದ ಮಣಿಪಾಲ್, ಮಂಗಳೂರು ಮತ್ತು ಬೆಂಗಳೂರಿನ ನೂರಾರು ಪಿಜಿ ಮಾಲೀಕರು ನಮ್ಮ ಸುರಕ್ಷಿತ ಕ್ಲೌಡ್ ಡೇಟಾ ನೆಟ್‌ವರ್ಕ್ ಅನ್ನು ನಂಬಿದ್ದಾರೆ.</p>`,
             privacyContent: `<h3>ಡೇಟಾ ಸುರಕ್ಷತೆ ಮತ್ತು ಗೌಪ್ಯತಾ ನೀತಿ</h3><p>HUDKO ULTRA ERP ಯಲ್ಲಿ ನಿಮ್ಮ ಬಿಸಿನೆಸ್ ಮತ್ತು ಗ್ರಾಹಕರ ಡೇಟಾ ಸುರಕ್ಷತೆಗೆ ನಾವು ಮೊದಲ ಆದ್ಯತೆ ನೀಡುತ್ತೇವೆ. ವಿದ್ಯಾರ್ಥಿಗಳ ದಾಖಲಾತಿ, ಬಯೋಮೆಟ್ರಿಕ್ ಲಾಗ್‌ಗಳು ಮತ್ತು ಆರ್ಥಿಕ ಪಾವತಿಗಳ ಹಿಸ್ಟರಿ ಸಂಪೂರ್ಣವಾಗಿ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಆಗಿರುತ್ತದೆ.</p><ul><li><b>ಡೇಟಾ ಮಾರಾಟವಿಲ್ಲ:</b> ನಿಮ್ಮ ಅಥವಾ ವಿದ್ಯಾರ್ಥಿಗಳ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಗಳನ್ನು ಯಾವುದೇ ಜಾಹೀರಾತು ಸಂಸ್ಥೆಗಳಿಗೆ ಮಾರಾಟ ಮಾಡಲಾಗುವುದಿಲ್ಲ.</li><li><b>ಸುರಕ್ಷಿತ ವಾಟ್ಸಾಪ್ ಕನೆಕ್ಷನ್:</b> ಎಲ್ಲಾ ಬಿಲ್ಲಿಂಗ್ ರಸೀದಿಗಳನ್ನು ಅತ್ಯಂತ ಸುರಕ್ಷಿತ ಕ್ಲೌಡ್ ಎಪಿಐ ಮೂಲಕ ರವಾನಿಸಲಾಗುತ್ತದೆ.</li></ul>`,
             securityContent: `<h3>ಡೇಟಾ ಸುರಕ್ಷತಾ ಪ್ರೋಟೋಕಾಲ್</h3><p>HUDKO ULTRA ERP ನಿಮ್ಮ ಪಿಜಿ ಬಿಸಿನೆಸ್‌ನ ಪ್ರತಿಯೊಂದು ಮಾಹಿತಿಯನ್ನು ಅತ್ಯಂತ ಸುರಕ್ಷಿತ ಸರ್ವರ್ ಹಬ್‌ಗಳಲ್ಲಿ ಸಂರಕ್ಷಿಸುತ್ತದೆ.</p><ul><li><b>AES-256 ಬಿಟ್ ಎನ್‌ಕ್ರಿಪ್ಶನ್:</b> ವಿದ್ಯಾರ್ಥಿಗಳ ಆಧಾರ್ ಕಾರ್ಡ್, ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಮತ್ತು ಹಣದ ಲೆಕ್ಕಾಚಾರಗಳು ಮಿಲಿಟರಿ-ಗ್ರೇಡ್ ಸೆಕ್ಯುರಿಟಿಯೊಂದಿಗೆ ಲಾಕ್ ಆಗಿರುತ್ತವೆ.</li><li><b>ರಿಯಲ್-ಟೈಮ್ ಕ್ಲೌಡ್ ಬ್ಯಾಕಪ್:</b> ಪ್ರತಿ 60 ಸೆಕೆಂಡಿಗೆ ನಿಮ್ಮ ಡೇಟಾ ಆಟೋಮ್ಯಾಟಿಕ್ ಆಗಿ ಬ್ಯಾಕಪ್ ಆಗುವುದರಿಂದ ಫೋನ್ ಅಥವಾ ಕಂಪ್ಯೂಟರ್ ಹಾಳಾದರೂ ಡೇಟಾ ಡಿಲೀಟ್ ಆಗುವುದಿಲ್ಲ.</li><li><b>ಫೈರ್‌ವಾಲ್ ಪ್ರೊಟೆಕ್ಷನ್:</b> ಹ್ಯಾಕಿಂಗ್ ಮತ್ತು ಅನಧಿಕೃತ ಲಾಗಿನ್ ಯತ್ನಗಳನ್ನು ತಡೆಯಲು ಪ್ರತ್ಯೇಕ ಸೆಕ್ಯುರಿಟಿ ಶೀಲ್ಡ್ ಅಳವಡಿಸಲಾಗಿದೆ.</li></ul>`,
             termsContent: `<h3>ಬಳಕೆಯ ನಿಯಮಗಳು ಮತ್ತು ಒಪ್ಪಂದಗಳು</h3><p>HUDKO ULTRA ERP ಸಾಫ್ಟ್‌ವೇರ್ ಲೈಸೆನ್ಸ್ ಅನ್ನು ಬಳಸುವ ಮುನ್ನ ಈ ಕೆಳಗಿನ ನಿಯಮಗಳನ್ನು ಕಡ್ಡಾಯವಾಗಿ ಪಾಲಿಸಬೇಕಾಗುತ್ತದೆ:</p><ul><li><b>ಲೈಸೆನ್ಸ್ ನಿಯಮ:</b> ನಿಮ್ಮ ಸಾಫ್ಟ್‌ವೇರ್ ಲೈಸೆನ್ಸ್ ಕೀ ಕೇವಲ ನಿಮ್ಮ ಅಧಿಕೃತ ಬ್ರಾಂಚ್‌ಗಳಿಗೆ ಮಾತ್ರ ಸೀಮಿತವಾಗಿದ್ದು, ಅದನ್ನು ದುರುಪಯೋಗಪಡಿಸಿಕೊಳ್ಳುವುದು ಕಾನೂನುಬಾಹಿರ.</li><li><b>ಗ್ಲೋಬಲ್ ಬ್ಲಾಕ್‌ಲಿಸ್ಟ್ ನಿಯಮ:</b> ಡಿಫಾಲ್ಟರ್ ನೆಟ್‌ವರ್ಕ್ ಅನ್ನು ಕೇವಲ ಭದ್ರತಾ ಪರಿಶೀಲನೆಗೆ ಮಾತ್ರ ಬಳಸಬೇಕು. ಯಾವುದೇ ಸುಳ್ಳು ಮಾಹಿತಿಯನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿದರೆ ನಿಮ್ಮ ಎಪಿಐ ಕೀ ತಕ್ಷಣ ರದ್ದಾಗುತ್ತದೆ.</li><li><b>ಸರ್ವರ್ ನಿರ್ವಹಣೆ:</b> ನಿಮ್ಮ ಪ್ಲಾನ್‌ಗೆ ಅನುಗುಣವಾಗಿ ಮಾಸಿಕ ಅಥವಾ ವಾರ್ಷಿಕ ಸರ್ವರ್ ನವೀಕರಣ (Maintenance) ಅನ್ವಯಿಸುತ್ತದೆ.</li></ul>`
         }
     };
 
-    // Terminal Emulator Script with Auto-Scroll Fix
     const terminalLogs = document.getElementById('terminal-logs');
     const logs = [
         {text: "[info] Initializing Cloud Node Sync with Manipal HQ... SUCCESS", color: "#34d399"},
@@ -1007,7 +1144,6 @@
         document.getElementById('foot_desc').innerText = d.footDesc;
         document.getElementById('foot_btn').innerHTML = `<i class="fab fa-whatsapp me-2"></i> ` + d.footBtn;
 
-        // Legal Frame Pipeline updates
         document.getElementById('foot_brand_desc').innerText = d.footBrandDesc;
         document.getElementById('foot_links_title').innerHTML = d.footLinksTitle;
         document.getElementById('link_about').innerHTML = d.linkAbout;
@@ -1023,6 +1159,7 @@
         document.getElementById('termsModalBody').innerHTML = d.termsContent;
 
         calculateLivePrices();
+        resetChatbotGreeting();
     }
 
     function handlePlanSelection(basePlanName, selectEngineId, brandSelectId) {
@@ -1134,7 +1271,114 @@
         applyLandingLanguage(e.target.value);
     });
 
-    // Initialize Language Setup on boot
+    // --- CHATBOT LOGIC IMPLEMENTATION ---
+    const chatbotKnowledge = {
+        kn: {
+            welcome: "ನಮಸ್ಕಾರ! ನಾನು HUDKO AI ಸಹಾಯಕಿ. ನಿಮಗೆ ಸಾಫ್ಟ್‌ವೇರ್ ಬಗ್ಗೆ ಏನು ತಿಳಿಯಬೇಕು? ಕೆಳಗಿನ ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ ಅಥವಾ ಟೈಪ್ ಮಾಡಿ.",
+            hints: ["ಬೆಲೆ ಎಷ್ಟು?", "ಮೊಬೈಲ್‌ನಲ್ಲಿ ಕೆಲಸ ಮಾಡುತ್ತಾ?", "ವಾಟ್ಸಾಪ್ ಅಲರ್ಟ್ ಫ್ರೀನಾ?", "ಡೆಮೊ ಬೇಕು"],
+            responses: {
+                "ಬೆಲೆ": "ನಮ್ಮ ಮಾಸಿಕ ಪ್ಲಾನ್‌ಗಳು ₹499 ರಿಂದ ಪ್ರಾರಂಭವಾಗುತ್ತವೆ. ಲೈಫ್‌ಟೈಮ್ ಪ್ಲಾನ್‌ಗಳು ಕೂಡ ಲಭ್ಯವಿವೆ. ಹೆಚ್ಚಿನ ವಿವರಗಳಿಗಾಗಿ ನಮ್ಮ 'Commercial License' ಸೆಕ್ಷನ್ ವೀಕ್ಷಿಸಿ.",
+                "ಮೊಬೈಲ್": "ಹೌದು, HUDKO ULTRA ಸಂಪೂರ್ಣವಾಗಿ ಕ್ಲೌಡ್-ಬೇಸ್ಡ್ ಆಗಿದೆ. ನೀವು ಮೊಬೈಲ್, ಟ್ಯಾಬ್ಲೆಟ್ ಅಥವಾ ಕಂಪ್ಯೂಟರ್ ಮೂಲಕ ಜಗತ್ತಿನ ಯಾವುದೇ ಮೂಲೆಯಿಂದ ಆಪರೇಟ್ ಮಾಡಬಹುದು.",
+                "ವಾಟ್ಸಾಪ್": "ಹೌದು! ನಿಮ್ಮ ಲೈಸೆನ್ಸ್ ಪ್ಯಾಕೇಜ್‌ನಲ್ಲೇ ಆಟೋಮೇಟೆಡ್ ವಾಟ್ಸಾಪ್ ರಸೀದಿಗಳು ಮತ್ತು ಡ್ಯೂ ನೋಟಿಫಿಕೇಶನ್‌ಗಳ ಎಂಜಿನ್ ಇಂಟಿಗ್ರೇಟ್ ಆಗಿರುತ್ತದೆ. ಯಾವುದೇ ಎಕ್ಸ್ಟ್ರಾ ಚಾರ್ಜ್ ಇಲ್ಲ.",
+                "ಡೆಮೊ": "ಲೈವ್ ಡೆಮೊ ಪಡೆಯಲು ವೆಬ್‌ಸೈಟ್‌ನಲ್ಲಿರುವ 'WhatsApp ಮೂಲಕ ಲೈವ್ ಡೆಮೊ ಪಡೆಯಿರಿ' ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ ಅಥವಾ ನಿಮ್ಮ ವಿವರಗಳನ್ನು ನಮಗೆ ತಿಳಿಸಿ.",
+                "default": "ಕ್ಷಮಿಸಿ, ನನಗೆ ಅರ್ಥವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಬೆಲೆ, ಮೊಬೈಲ್ ಕೆಲಸ, ಅಥವಾ ವಾಟ್ಸಾಪ್ ಅಲರ್ಟ್ ಬಗ್ಗೆ ಕೇಳಿ."
+            }
+        },
+        en: {
+            welcome: "Hello! I am HUDKO AI Assistant. How can I help you today? Select a topic or ask me anything.",
+            hints: ["What is the price?", "Works on mobile?", "Is WhatsApp alert free?", "Need Demo"],
+            responses: {
+                "price": "Our monthly tier starts from ₹499. One-time lifetime plans are also available. Please check our pricing section for detailed matrix.",
+                "mobile": "Yes, HUDKO ULTRA is entirely cloud-based and responsive. You can manage everything via mobile, tablet, or desktop from anywhere.",
+                "whatsapp": "Yes! Automated WhatsApp bills and due receipts are natively integrated inside your plan package with zero hidden charges.",
+                "demo": "To activate your live demo, kindly click on the 'Get Started' or WhatsApp Demo button listed on the main page.",
+                "default": "I'm sorry, I didn't quite catch that. Please type about pricing, mobile compatibility, or WhatsApp features."
+            }
+        }
+    };
+
+    function toggleChatbot() {
+        const container = document.getElementById('chatContainer');
+        if (container.style.display === 'none' || container.style.display === '') {
+            container.style.display = 'flex';
+            if(document.getElementById('chatMessages').children.length === 0) {
+                resetChatbotGreeting();
+            }
+        } else {
+            container.style.display = 'none';
+        }
+    }
+
+    function resetChatbotGreeting() {
+        const lang = document.getElementById('landingLangSwitcher').value;
+        const messagesContainer = document.getElementById('chatMessages');
+        messagesContainer.innerHTML = ''; 
+
+        const botBubble = document.createElement('div');
+        botBubble.className = 'chat-bubble bot';
+        botBubble.innerText = chatbotKnowledge[lang].welcome;
+        messagesContainer.appendChild(botBubble);
+
+        const hintsDiv = document.createElement('div');
+        hintsDiv.className = 'suggested-hints';
+        chatbotKnowledge[lang].hints.forEach(hint => {
+            const btn = document.createElement('button');
+            btn.className = 'hint-btn';
+            btn.innerText = hint;
+            btn.onclick = () => {
+                document.getElementById('chatInput').value = hint;
+                sendUserMessage();
+            };
+            hintsDiv.appendChild(btn);
+        });
+        messagesContainer.appendChild(hintsDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function handleChatKeypress(event) {
+        if (event.key === 'Enter') {
+            sendUserMessage();
+        }
+    }
+
+    function sendUserMessage() {
+        const inputEl = document.getElementById('chatInput');
+        const text = inputEl.value.trim();
+        if (!text) return;
+
+        const lang = document.getElementById('landingLangSwitcher').value;
+        const messagesContainer = document.getElementById('chatMessages');
+
+        const userBubble = document.createElement('div');
+        userBubble.className = 'chat-bubble user';
+        userBubble.innerText = text;
+        messagesContainer.appendChild(userBubble);
+        inputEl.value = '';
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        setTimeout(() => {
+            const botBubble = document.createElement('div');
+            botBubble.className = 'chat-bubble bot';
+            
+            let reply = chatbotKnowledge[lang].responses["default"];
+            const lowerText = text.toLowerCase();
+
+            if(lowerText.includes("ಬೆಲೆ") || lowerText.includes("price") || lowerText.includes("cost") || lowerText.includes("ಚಾರ್ಜ್")) {
+                reply = chatbotKnowledge[lang].responses["price"] || chatbotKnowledge[lang].responses["ಬೆಲೆ"];
+            } else if (lowerText.includes("ಮೊಬೈಲ್") || lowerText.includes("mobile") || lowerText.includes("phone") || lowerText.includes("ಫೋನ್")) {
+                reply = chatbotKnowledge[lang].responses["mobile"] || chatbotKnowledge[lang].responses["ಮೊಬೈಲ್"];
+            } else if (lowerText.includes("ವಾಟ್ಸಾಪ್") || lowerText.includes("whatsapp") || lowerText.includes("ಮೆಸೇಜ್")) {
+                reply = chatbotKnowledge[lang].responses["whatsapp"] || chatbotKnowledge[lang].responses["ವಾಟ್ಸಾಪ್"];
+            } else if (lowerText.includes("ಡೆಮೊ") || lowerText.includes("demo") || lowerText.includes("ಲೈವ್")) {
+                reply = chatbotKnowledge[lang].responses["demo"] || chatbotKnowledge[lang].responses["ಡೆಮೊ"];
+            }
+
+            botBubble.innerText = reply;
+            messagesContainer.appendChild(botBubble);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }, 600);
+    }
+
     applyLandingLanguage('kn');
 </script>
 
