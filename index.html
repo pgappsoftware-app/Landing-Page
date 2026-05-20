@@ -6,7 +6,7 @@
     <title>HUDKO ULTRA ERP 2026 | Next-Gen PG & Hostel Automation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -22,7 +22,7 @@
         body {
             background-color: var(--bg-dark);
             color: var(--text-white);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Plus Jakarta Sans', 'Noto Sans Kannada', sans-serif;
             overflow-x: hidden;
         }
 
@@ -280,10 +280,24 @@
             color: var(--primary-glow) !important;
             background-color: transparent !important;
         }
-        .hover-white:hover {
-            color: var(--text-white) !important;
-            text-shadow: 0 0 8px rgba(255,255,255,0.5);
+        
+        /* Modal Custom Styling to Match Theme */
+        .modal-content ul {
+            padding-left: 20px;
+            margin-top: 10px;
         }
+        .modal-content li {
+            margin-bottom: 8px;
+        }
+        .modal-content h3 {
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: #a5b4fc;
+        }
+        
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
     </style>
 </head>
 <body>
@@ -310,7 +324,7 @@
             <span id="hero_title_1">ನಿಮ್ಮ PG ಆಟೋಮೇಷನ್ ಹ್ಯಾಂಡಲ್ ಮಾಡಲು</span> <br>
             <span class="gradient-text glow-text" id="hero_title_2">HUDKO ULTRA ERP 2026</span>
         </h1>
-        <p class="lead text-light mx-auto mb-5 fw-normal" style="max-width: 800px; font-size: 20px; color: var(--text-light) !important;" id="hero_desc">
+        <p class="lead text-light mx-auto mb-5 fw-normal" style="max-width: 800px; font-size: 20px;" id="hero_desc">
             ಮ್ಯಾನುವಲ್ ಲೆಕ್ಕಾಚಾರ ಬಿಟ್ಟುಬಿಡಿ. ವಿದ್ಯಾರ್ಥಿ ದಾಖಲಾತಿ, ಬಯೋಮೆಟ್ರಿಕ್ ಭದ್ರತೆ, ಆಟೋ-ಪೈಲಟ್ ಬಾಡಿಗೆ ಕಲೆಕ್ಷನ್ ಮತ್ತು ವೆಂಡರ್ ಬಿಲ್ಲಿಂಗ್ ಅನ್ನು ಒಂದೇ ಒಂದು ಸುರಕ್ಷಿತ ಕ್ಲೌಡ್ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಮೂಲಕ ನಿಯಂತ್ರಿಸಿ.
         </p>
         
@@ -320,53 +334,18 @@
         </div>
 
         <div class="mx-auto mb-5" style="max-width: 800px; padding: 0 15px;">
-    <div class="terminal-mockup" id="live-terminal">
-        <div class="d-flex align-items-center gap-2 mb-3">
-            <span style="width: 12px; height: 12px; background: #ef4444; border-radius: 50%; display: inline-block;"></span>
-            <span style="width: 12px; height: 12px; background: #fbbf24; border-radius: 50%; display: inline-block;"></span>
-            <span style="width: 12px; height: 12px; background: #10b981; border-radius: 50%; display: inline-block; animation: blink 1s infinite;"></span>
-            <span class="ms-2 small fw-bold" style="color: #64748b; font-family: monospace;">HUDKO CORE SERVER V2026.04 - LIVE</span>
+            <div class="terminal-mockup" id="live-terminal">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <span style="width: 12px; height: 12px; background: #ef4444; border-radius: 50%; display: inline-block;"></span>
+                    <span style="width: 12px; height: 12px; background: #fbbf24; border-radius: 50%; display: inline-block;"></span>
+                    <span style="width: 12px; height: 12px; background: #10b981; border-radius: 50%; display: inline-block; animation: blink 1s infinite;"></span>
+                    <span class="ms-2 small fw-bold" style="color: #64748b; font-family: monospace;">HUDKO CORE SERVER V2026.04 - LIVE</span>
+                </div>
+                <div id="terminal-logs" style="font-family: monospace; font-size: 13px; line-height: 1.6; text-align: left; height: 150px; overflow-y: hidden;">
+                    <p style="color: #34d399; margin-bottom: 5px;">[info] Initializing Cloud Node Sync with Manipal HQ... SUCCESS</p>
+                </div>
+            </div>
         </div>
-        
-        <div id="terminal-logs" style="font-family: monospace; font-size: 13px; line-height: 1.6; text-align: left; height: 150px; overflow: hidden;">
-            <p style="color: #34d399; margin-bottom: 5px;">[info] Initializing Cloud Node Sync with Manipal HQ... SUCCESS</p>
-        </div>
-    </div>
-</div>
-
-<style>
-    @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
-</style>
-
-<script>
-    const terminalLogs = document.getElementById('terminal-logs');
-    const logs = [
-        {text: "[secure] Booting central database firewall...", color: "#34d399"},
-        {text: "[alert] Room 202 : Rent Paid via UPI - ₹8,500", color: "#60a5fa"},
-        {text: "[success] WhatsApp Receipt sent to Room 202", color: "#34d399"},
-        {text: "[info] Syncing Manipal branch inventory...", color: "#a5b4fc"},
-        {text: "[alert] Room 104 : Overdue Statement Found!", color: "#fbbf24"},
-        {text: "[success] New Student Check-in detected", color: "#34d399"},
-        {text: "[info] Calculating Net Monthly Profit...", color: "#a5b4fc"}
-    ];
-
-    function addLog() {
-        const log = logs[Math.floor(Math.random() * logs.length)];
-        const p = document.createElement('p');
-        p.style.color = log.color;
-        p.style.marginBottom = "5px";
-        p.innerText = log.text;
-        terminalLogs.appendChild(p);
-        
-        // ಲಾಗ್ಸ್ ಜಾಸ್ತಿ ಆದ್ರೆ ಹಳೆಯದನ್ನು ಡಿಲೀಟ್ ಮಾಡಿ
-        if (terminalLogs.children.length > 6) {
-            terminalLogs.removeChild(terminalLogs.firstChild);
-        }
-    }
-    // ಪ್ರತಿ 2 ಸೆಕೆಂಡಿಗೆ ಹೊಸ ಲಾಗ್ ಬರುತ್ತದೆ
-    setInterval(addLog, 2000);
-</script>
-
 
         <div class="mx-auto mb-4" style="max-width: 950px;">
             <div class="row g-3 justify-content-center">
@@ -377,7 +356,6 @@
                         <span class="fw-bold small tracking-wider d-block" id="scale_stat_1" style="font-size: 13px; color: #34d399 !important;">ಪಿಜಿ ಬ್ರಾಂಚ್‌ಗಳ ನೆಟ್‌ವರ್ಕ್</span>
                     </div>
                 </div>
-
                 <div class="col-6">
                     <div class="p-3 rounded-4 border border-secondary text-center" style="background: var(--card-dark); border: 2px solid #2d3748 !important;">
                         <div class="text-info mb-1" style="font-size: 24px;"><i class="fas fa-bed"></i></div>
@@ -430,7 +408,7 @@
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-comment-dollar"></i></div>
                     <h4 id="f2_t">ಸ್ಮಾರ್ಟ್ ವಾಟ್ಸಾಪ್ ರಸೀದಿಗಳು</h4>
-                    <p id="f2_d">ಯಾವುದೇ ಮ್ಯಾನುವಲ್ ಮೆಸೇಜ್ ಬೇಡ. ಒಂದೇ ಕ್ಲಿಕ್‌ನಲ್ಲಿ ಸುಂದರವಾದ ಡಿಜಿಟಲ್ ಪಾವತಿ ರಸೀದಿಗಳು ಮತ್ತು ಬಾಕಿ ಅಲರ್ಟ್‌ಗಳು ನೇರವಾಗಿ ವಿದ್ಯಾರ್ಥಿಗಳ ವಾಟ್ಸಾಪ್ ನಂಬರ್‌ಗೆ ತಲುಪುತ್ತವೆ.</p>
+                    <p id="f2_d">ಯಾವುದೇ ಮ್ಯಾನುವಲ್ ಮೆಸೇಜ್ ಬೇಡ. ಒಂದೇ ಕ್ಲಿಕ್‌ನಲ್ಲಿ ಸುಂದರವಾದ ಡಿಜಿಟಲ್ ಪಾವತಿ ರಸೀದಿಗಳು ಮತ್ತು ಬಾಕಿ ಅಲರ್ಟ್‌ಗಳು ನೇರವಾಗಿ ವಿದ್ಯಾರ್ಥಿಗಳ ವಾಟ್ಸಾಪ್ ನಂಬರ್‌ಗೆ تಲುಪುತ್ತವೆ.</p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -601,7 +579,7 @@
     </div>
 </section>
 
-<section id="faq" class="py-5 border-top border-secondary" style="background-color: var(--bg-dark);">
+<section id="faq" class="py-5 border-top border-secondary">
     <div class="container py-4">
         <div class="text-center mb-5">
             <h2 class="fw-bold display-5 text-white" id="faq_title">ಪದೇ ಪದೇ ಕೇಳಲಾಗುವ ಪ್ರಶ್ನೆಗಳು (FAQ)</h2>
@@ -611,11 +589,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="accordion accordion-flush" id="faqAccordion" style="background: transparent;">
-                    
                     <div class="accordion-item bg-transparent border-bottom border-secondary mb-3">
                         <h2 class="accordion-header">
                             <button class="accordion-button collapsed bg-transparent text-white fw-bold fs-5 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" id="q1_t">
-                                📌 ಈ ಸಾಫ್ಟ್‌ವೇರ್ ಮೊಬೈಲ್‌‌ನಲ್ಲಿ ಕೆಲಸ ಮಾಡುತ್ತದೆಯೇ?
+                                📌 ಈ ಸಾಫ್ಟ್‌ವೇರ್ ಮೊಬೈಲ್‌‌ನಲ್ಲಿ ಕೆಲಸ ಮಾಡುತ್ತದەیە?
                             </button>
                         </h2>
                         <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
@@ -633,7 +610,7 @@
                         </h2>
                         <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                             <div class="accordion-body text-light" style="line-height: 1.7;" id="q2_d">
-                                ಇಲ್ಲ, ನಿಮ್ಮ ಮಂತ್ಲಿ ಲೈಸೆನ್ಸ್ ಪ್ಯಾಕೇಜ್‌ನಲ್ಲೇ ಆಟೋಮೇಟೆಡ್ ವಾಟ್ಸಾಪ್ ರಸೀದಿಗಳು ಮತ್ತು ಡ್ಯೂ ನೋಟಿಫಿಕೇಶನ್‌ಗಳ ಎಂಜಿನ್ ಇಂಟಿಗ್ರೇಟ್ ಆಗಿರುತ್ತದೆ. ಯಾವುದೇ ಹಿಡನ್ ಚಾರ್ಜಸ್ ಇರುವುದಿಲ್ಲ.
+                                ಇಲ್ಲ, ನಿಮ್ಮ ಮಂತ್ಲಿ ಲೈಸೆನ್ಸ್ ಪ್ಯಾಕೇಜ್‌ನಲ್ಲೇ ಆಟೋಮೇಟೆಡ್ ವಾಟ್ಸಾಪ್ ರಸೀದಿಗಳು ಮತ್ತು ಡ್ಯೂ ನೋಟಿಫಿಕೇಶನ್‌ಗಳ ಎಂಜಿನ್ ಇಂಟಿಗ್ರೇಟ್ ಆಗಿರುತ್ತದೆ. ಯಾವುದೇ ಹಿಡನ್ چಾರ್ಜಸ್ ಇರುವುದಿಲ್ಲ.
                             </div>
                         </div>
                     </div>
@@ -650,80 +627,125 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </section>
 
- <!DOCTYPE html>
-<html lang="kn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HUDKO ULTRA ERP 2026 | Next-Gen PG & Hostel Automation</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body { background-color: #070a13; color: #ffffff; font-family: sans-serif; }
-        .btn-gradient { background: linear-gradient(135deg, #6366f1, #a855f7); color: white !important; border: none; padding: 15px 35px; border-radius: 14px; font-weight: 700; cursor: pointer; }
-    </style>
-</head>
-<body>
+<footer style="background-color: #0d131f; color: #cbd5e1; padding: 60px 20px 30px 20px; font-family: 'Plus Jakarta Sans', 'Noto Sans Kannada', sans-serif; font-size: 14px; border-top: 2px solid #2d3748;">
+    
+    <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; text-align: left;">
+        
+        <div style="flex: 1.5; min-width: 280px;">
+            <h3 style="color: #818cf8; font-size: 18px; margin-bottom: 20px; font-weight: 700; text-shadow: 0 0 10px rgba(129, 140, 248, 0.3);">
+                <i class="fas fa-bolt text-warning"></i> HUDKO ULTRA ERP
+            </h3>
+            <p id="foot_brand_desc" style="line-height: 1.7; margin-bottom: 12px; color: #e2e8f0;">
+                HUDKO ULTRA ERP 2026 ಎಂಬುದು ಕರ್ನಾಟಕದ ಪಿಜಿ ಮತ್ತು ಹಾಸ್ಟೆಲ್ ಮಾಲೀಕರಿಗಾಗಿಯೇ ರೂಪಿಸಲಾದ ಅತ್ಯಾಧುನಿಕ ಕ್ಲೌಡ್ ಮ್ಯಾನೇಜ್ಮೆಂಟ್ ಸಾಫ್ಟ್‌ವೇರ್ ಆಗಿದೆ.
+            </p>
+        </div>
 
-<footer class="text-center py-5">
-    <div class="container">
-        <h3>ಇನ್ನೇಕೆ ಕಾಯುತ್ತಿದ್ದೀರಾ?</h3>
-        <button onclick="handleFooterDemo()" class="btn btn-gradient btn-lg px-5 py-3 mb-4" id="foot_btn">
+        <div style="flex: 1; min-width: 200px;">
+            <h4 id="foot_links_title" style="color: #34d399; font-size: 16px; margin-bottom: 20px; font-weight: 700;">
+                <i class="fas fa-shield-halved"></i> ಮಾಹಿತಿ ಮತ್ತು ನಿಯಮಗಳು
+            </h4>
+            <ul style="list-style: none; padding: 0; line-height: 2.2;">
+                <li><a href="#" data-bs-toggle="modal" data-bs-target="#aboutModal" id="link_about" style="color: #cbd5e1; text-decoration: none; transition: color 0.3s;"><i class="fas fa-info-circle me-2 text-primary"></i> ನಮ್ಮ ಬಗ್ಗೆ (About Us)</a></li>
+                <li><a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal" id="link_privacy" style="color: #cbd5e1; text-decoration: none; transition: color 0.3s;"><i class="fas fa-user-shield me-2 text-success"></i> ಗೌಪ್ಯತಾ ನೀತಿ (Privacy Policy)</a></li>
+                <li><a href="#" data-bs-toggle="modal" data-bs-target="#securityModal" id="link_security" style="color: #cbd5e1; text-decoration: none; transition: color 0.3s;"><i class="fas fa-shield-virus me-2 text-danger"></i> ಡೇಟಾ ಸೆಕ್ಯುರಿಟಿ (Data Security)</a></li>
+                <li><a href="#" data-bs-toggle="modal" data-bs-target="#termsModal" id="link_terms" style="color: #cbd5e1; text-decoration: none; transition: color 0.3s;"><i class="fas fa-file-invoice me-2 text-warning"></i> ಷರತ್ತುಗಳು (Terms & Conditions)</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div style="max-width: 1200px; margin: 40px auto 0 auto; text-align: center;">
+        <h4 style="color: #fff; font-weight: 700; margin-bottom: 15px;" id="foot_title">ಇನ್ನೇಕೆ ಕಾಯುತ್ತಿದ್ದೀರಾ? ನಿಮ್ಮ ಹಳೆಯ ಲೆಕ್ಕದ ಬುಕ್‌ಗಳಿಗೆ ಗುಡ್‌ಬೈ ಹೇಳಿ!</h4>
+        <p style="color: #94a3b8; margin-bottom: 20px;" id="foot_desc">HUDKO ULTRA ERP nೊಂದಿಗೆ ನಿಮ್ಮ ವ್ಯವಹಾರದ ಲಾಭವನ್ನು ಕನಿಷ್ಠ 20% ಹೆಚ್ಚಿಸಿಕೊಳ್ಳಿ.</p>
+        <button onclick="handleFooterDemo()" class="btn btn-gradient btn-lg px-5 py-3" id="foot_btn" style="border-radius: 14px; font-weight: 700; width: auto;">
             <i class="fab fa-whatsapp me-2"></i> WhatsApp ಮೂಲಕ ಲೈವ್ ಡೆಮೊ ಪಡೆಯಿರಿ
         </button>
     </div>
+
+    <hr style="border: 0; border-top: 1px solid #2d3748; margin: 40px auto 25px auto; max-width: 1200px;">
+
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; font-size: 13px; color: #64748b; gap: 15px;">
+        <div>
+            <p style="margin: 0;">&copy; 2026 <strong style="color: #818cf8;">HUDKO ULTRA ERP</strong>. <span id="foot_copy">ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ / All Rights Reserved.</span></p>
+        </div>
+        <div>
+            <p style="margin: 0;">
+                <i class="fas fa-envelope text-primary me-1"></i> <span id="foot_support_text">ಡೆಮೊ ಮತ್ತು ಬೆಂಬಲಕ್ಕಾಗಿ:</span> 
+                <a href="mailto:support@hudko.com" style="color: #818cf8; text-decoration: none; font-weight: 600;">support@hudko.com</a>
+            </p>
+        </div>
+    </div>
 </footer>
 
-<script>
-    // ನಿಮ್ಮ ಇತರ ಸ್ಕ್ರಿಪ್ಟ್ ಜೊತೆಗೆ ಈ ಫಂಕ್ಷನ್ ಅನ್ನು ಕೆಳಗೆ ಇರಿಸಿ
-    function handleFooterDemo() {
-        let ownerName = prompt("ನಿಮ್ಮ ಹೆಸರು / Enter Your Name:");
-        if (!ownerName) return; 
-
-        let pgName = prompt("ನಿಮ್ಮ PG ಸಂಸ್ಥೆಯ ಹೆಸರು / Enter PG Name:");
-        if (!pgName) return;
-
-        let mobileNo = prompt("ನಿಮ್ಮ ಮೊಬೈಲ್ ನಂಬರ್ / Enter Mobile Number:");
-        if (!mobileNo) return;
-
-        let rawMessage = 
-            `*🔥 HUDKO ULTRA ERP - DEMO REQUEST *\n\n` +
-            `*👤 Owner Name:* ${ownerName}\n` +
-            `*🏢 PG Name:* ${pgName}\n` +
-            `*📞 Mobile:* ${mobileNo}\n\n` +
-            `*Message:* ನನಗೆ HUDKO ULTRA ERP ಲೈವ್ ಡೆಮೊ ಬೇಕಾಗಿದೆ.`;
-
-        let whatsappUrl = `https://wa.me/919108151310?text=${encodeURIComponent(rawMessage)}`;
-        
-        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-    }
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
 <div class="modal fade" id="aboutModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered text-start">
-        <div class="modal-content text-white border border-secondary" style="background-color: var(--card-dark) !important;">
-            <div class="modal-header border-secondary">
-                <h5 class="modal-title fw-bold text-primary">About HUDKO ULTRA</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="background-color: #131926; border: 2px solid #2d3748; color: #ffffff; border-radius: 20px; text-align: left;">
+            <div class="modal-header" style="border-bottom: 1px solid #2d3748;">
+                <h5 class="modal-title fw-bold" id="aboutModalTitle" style="color: #818cf8;"><i class="fas fa-info-circle me-2"></i> ನಮ್ಮ ಬಗ್ಗೆ / About Us</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <p>HUDKO ULTRA ERP 2026 ಎಂಬುದು ಕರ್ನಾಟಕದ ಪಿಜಿ ಮತ್ತು ಹಾಸ್ಟೆಲ್ ಮಾಲೀಕರಿಗಾಗಿಯೇ ರೂಪಿಸಲಾದ ಅತ್ಯಾಧುನಿಕ ಕ್ಲೌಡ್ ಮ್ಯಾನೇಜ್ಮೆಂಟ್ ಸಾಫ್ಟ್‌ವೇರ್ ಆಗಿದೆ. ಮ್ಯಾನುವಲ್ ಕೆಲಸಗಳನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಕಡಿಮೆ ಮಾಡಿ, ಡಿಜಿಟಲ್ ಪಾವತಿ, ವಾಟ್ಸಾಪ್ ನೋಟಿಫಿಕೇಶನ್ ಮತ್ತು ಬಯೋಮೆಟ್ರಿಕ್ ಸೆಕ್ಯುರಿಟಿಯನ್ನು ಆಟೋಮೇಟ್ ಮಾಡುವುದು ನಮ್ಮ ಮುಖ್ಯ ಗುರಿ.</p>
+            <div class="modal-body" id="aboutModalBody" style="line-height: 1.8; font-size: 15px; max-height: 60vh; overflow-y: auto;">
+                </div>
+            <div class="modal-footer" style="border-top: 1px solid #2d3748;">
+                <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal" style="width: auto; padding: 8px 20px;">Close</button>
             </div>
         </div>
     </div>
 </div>
 
+<div class="modal fade" id="privacyModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="background-color: #131926; border: 2px solid #2d3748; color: #ffffff; border-radius: 20px; text-align: left;">
+            <div class="modal-header" style="border-bottom: 1px solid #2d3748;">
+                <h5 class="modal-title fw-bold" id="privacyModalTitle" style="color: #34d399;"><i class="fas fa-user-shield me-2"></i> ಗೌಪ್ಯತಾ ನೀತಿ / Privacy Policy</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="privacyModalBody" style="line-height: 1.8; font-size: 15px; max-height: 60vh; overflow-y: auto;">
+                </div>
+            <div class="modal-footer" style="border-top: 1px solid #2d3748;">
+                <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal" style="width: auto; padding: 8px 20px;">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="securityModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="background-color: #131926; border: 2px solid #2d3748; color: #ffffff; border-radius: 20px; text-align: left;">
+            <div class="modal-header" style="border-bottom: 1px solid #2d3748;">
+                <h5 class="modal-title fw-bold" id="securityModalTitle" style="color: #ef4444;"><i class="fas fa-user-lock me-2"></i> ಡೇಟಾ ಸೆಕ್ಯುರಿಟಿ / Data Security</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="securityModalBody" style="line-height: 1.8; font-size: 15px; max-height: 60vh; overflow-y: auto;">
+                </div>
+            <div class="modal-footer" style="border-top: 1px solid #2d3748;">
+                <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal" style="width: auto; padding: 8px 20px;">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="background-color: #131926; border: 2px solid #2d3748; color: #ffffff; border-radius: 20px; text-align: left;">
+            <div class="modal-header" style="border-bottom: 1px solid #2d3748;">
+                <h5 class="modal-title fw-bold" id="termsModalTitle" style="color: #fbbf24;"><i class="fas fa-file-invoice me-2"></i> ಷರತ್ತುಗಳು / Terms & Conditions</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="termsModalBody" style="line-height: 1.8; font-size: 15px; max-height: 60vh; overflow-y: auto;">
+                </div>
+            <div class="modal-footer" style="border-top: 1px solid #2d3748;">
+                <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal" style="width: auto; padding: 8px 20px;">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     let currentBillingCycle = 'monthly';
 
@@ -779,7 +801,22 @@
             footDesc: "Scale your revenue baselines up by 20% using the precision mechanics of HUDKO ULTRA ERP.",
             footBtn: "Connect and Request Live Demo via WhatsApp",
             toggleMonthly: "Monthly Plan",
-            toggleLifetime: "Lifetime Plan (One-time)"
+            toggleLifetime: "Lifetime Plan (One-time)",
+            
+            // Framework Additions
+            footBrandDesc: "HUDKO ULTRA ERP 2026 is a premium cloud architecture built to digitize, secure, and fully automate PG & hostel ecosystem workflows across Karnataka.",
+            footLinksTitle: "<i class='fas fa-shield-halved'></i> Information & Framework Rules",
+            linkAbout: "<i class='fas fa-info-circle me-2 text-primary'></i> About Us",
+            linkPrivacy: "<i class='fas fa-user-shield me-2 text-success'></i> Privacy Policy",
+            linkSecurity: "<i class='fas fa-shield-virus me-2 text-danger'></i> Data Security",
+            linkTerms: "<i class='fas fa-file-invoice me-2 text-warning'></i> Terms & Conditions",
+            footCopy: "All Rights Reserved.",
+            footSupportText: "For Live Demos & Technical Support:",
+            
+            aboutContent: `<h3>Who We Are</h3><p>HUDKO ULTRA ERP (Operating Framework 2026) is India's leading automation matrix tailored exclusively for paying guest facilities, co-living hubs, and student housing infrastructure. Our vision is to eliminate manual errors, mitigate financial leakage, and establish complete digital command nodes for multi-property realtors.</p><h3>Our Capabilities</h3><p>From automated cryptographic client onboarding to localized server nodes in Karnataka, we ensure seamless operational excellence and unmatched system longevity.</p>`,
+            privacyContent: `<h3>Data Sovereignty & Security Policy</h3><p>At HUDKO ULTRA ERP, data security is non-negotiable. Tenant structural records, dynamic biometric logs, facial credentials, and continuous monetary transacting histories are completely sandboxed using advanced standard encryption pipelines.</p><ul><li><b>Zero Leakage Policy:</b> No localized merchant files or mobile hashes are sold or rented to third-party ad networks.</li><li><b>WhatsApp Channels:</b> Alert signals are dispatched safely via officially protected cloud network nodes.</li></ul>`,
+            securityContent: `<h3>Enterprise Security Architecture</h3><p>HUDKO ULTRA ERP utilizes state-of-the-art protection parameters to safeguard your property asset data ecosystem.</p><ul><li><b>AES-256 Bit Encryption:</b> All financial ledgers and resident database metrics are securely encrypted.</li><li><b>Automatic Cloud Backups:</b> Real-time server nodes clone active states every 60 seconds to mitigate accidental physical data breakdown.</li><li><b>DDoS Shielding:</b> Our secure firewall prevents brute-force login breaches or malicious botnets attacks.</li></ul>`,
+            termsContent: `<h3>System Usage Authorization Agreement</h3><p>By initializing any licensed instance of HUDKO ULTRA ERP, you explicitly agree to obey our cloud guidelines:</p><ul><li><b>Node Restrictions:</b> Licenses are strictly restricted to assigned properties and cannot be illegally shared or decompiled.</li><li><b>Firewall Terms:</b> The Global Defaulter Network database must be utilized exclusively for tenant background security verifications. Any malicious false flag reporting will result in immediate API key revocation.</li><li><b>Server Maintenance:</b> System uptimes and technical engineering repairs are dynamically bound to chosen tier agreements.</li></ul>`
         },
         kn: {
             navCta: "ಪ್ರಾರಂಭಿಸಿ",
@@ -819,9 +856,51 @@
             footDesc: "HUDKO ULTRA ERP ನೊಂದಿಗೆ ನಿಮ್ಮ ವ್ಯವಹಾರದ ಲಾಭವನ್ನು ಕನಿಷ್ಠ 20% ಹೆಚ್ಚಿಸಿಕೊಳ್ಳಿ.",
             footBtn: "WhatsApp ಮೂಲಕ ಲೈವ್ ಡೆಮೊ ಪಡೆಯಿರಿ",
             toggleMonthly: "Monthly Plan",
-            toggleLifetime: "Lifetime Plan (One-time)"
+            toggleLifetime: "Lifetime Plan (One-time)",
+            
+            // Framework Additions
+            footBrandDesc: "HUDKO ULTRA ERP 2026 ಎಂಬುದು ಕರ್ನಾಟಕದ ಪಿಜಿ ಮತ್ತು ಹಾಸ್ಟೆಲ್ ಮಾಲೀಕರಿಗಾಗಿಯೇ ರೂಪಿಸಲಾದ ಅತ್ಯಾಧುನಿಕ ಕ್ಲೌಡ್ ಆಟೋಮೇಷನ್ ಸಾಫ್ಟ್‌ವೇರ್ ಆಗಿದೆ.",
+            footLinksTitle: "<i class='fas fa-shield-halved'></i> ಮಾಹಿತಿ ಮತ್ತು ನಿಯಮಗಳು",
+            linkAbout: "<i class='fas fa-info-circle me-2 text-primary'></i> ನಮ್ಮ ಬಗ್ಗೆ (About Us)",
+            linkPrivacy: "<i class='fas fa-user-shield me-2 text-success'></i> ಗೌಪ್ಯತಾ ನೀತಿ (Privacy Policy)",
+            linkSecurity: "<i class='fas fa-shield-virus me-2 text-danger'></i> ಡೇಟಾ ಸೆಕ್ಯುರಿಟಿ (Data Security)",
+            linkTerms: "<i class='fas fa-file-invoice me-2 text-warning'></i> ಷರತ್ತುಗಳು (Terms & Conditions)",
+            footCopy: "ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",
+            footSupportText: "ಡೆಮೊ ಮತ್ತು ತಾಂತ್ರಿಕ ಬೆಂಬಲಕ್ಕಾಗಿ:",
+            
+            aboutContent: `<h3>ನಾವು ಯಾರು?</h3><p>HUDKO ULTRA ERP (2026 ಆವೃತ್ತಿ) ಭಾರತದ ಅತ್ಯಂತ ಮುಂದುವರಿದ ಪಿಜಿ, ಹಾಸ್ಟೆಲ್ ಮತ್ತು ಕೋ-ಲಿವಿಂಗ್ ಮ್ಯಾನೇಜ್ಮೆಂಟ್ ಸಾಫ್ಟ್‌ವೇರ್ ಆಗಿದೆ. ಮ್ಯಾನುವಲ್ ಕೆಲಸ ಮತ್ತು ಹಣದ ಸೋರಿಕೆಯನ್ನು ಸಂಪೂರ್ಣವಾಗಿ تಡೆಗಟ್ಟಿ, ಮಾಲೀಕರಿಗೆ ತಮ್ಮ ಎಲ್ಲಾ ಬ್ರಾಂಚ್‌ಗಳ ಮೇಲೆ ಸಂಪೂರ್ಣ ಡಿಜಿಟಲ್ ನಿಯಂತ್ರಣ ಒದಗಿಸುವುದು ನಮ್ಮ ಧ್ಯೇಯವಾಗಿದೆ.</p><h3>ನಮ್ಮ ಸಾಮರ್ಥ್ಯ</h3><p>ಕರ್ನಾಟಕದ ಪ್ರಮುಖ ಶೈಕ್ಷಣಿಕ ಹಬ್‌ಗಳಾದ ಮಣಿಪಾಲ್, ಮಂಗಳೂರು ಮತ್ತು ಬೆಂಗಳೂರಿನ ನೂರಾರು ಪಿಜಿ ಮಾಲೀಕರು ನಮ್ಮ ಸುರಕ್ಷಿತ ಕ್ಲೌಡ್ ಡೇಟಾ ನೆಟ್‌ವರ್ಕ್ ಅನ್ನು ನಂಬಿದ್ದಾರೆ.</p>`,
+            privacyContent: `<h3>ಡೇಟಾ ಸುರಕ್ಷತೆ ಮತ್ತು ಗೌಪ್ಯತಾ ನೀತಿ</h3><p>HUDKO ULTRA ERP ಯಲ್ಲಿ ನಿಮ್ಮ ಬಿಸಿನೆಸ್ ಮತ್ತು ಗ್ರಾಹಕರ ಡೇಟಾ ಸುರಕ್ಷತೆಗೆ ನಾವು ಮೊದಲ ಆದ್ಯತೆ ನೀಡುತ್ತೇವೆ. ವಿದ್ಯಾರ್ಥಿಗಳ ದಾಖಲಾತಿ, ಬಯೋಮೆಟ್ರಿಕ್ ಲಾಗ್‌ಗಳು ಮತ್ತು ಆರ್ಥಿಕ ಪಾವತಿಗಳ ಹಿಸ್ಟರಿ ಸಂಪೂರ್ಣವಾಗಿ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಆಗಿರುತ್ತದೆ.</p><ul><li><b>ಡೇಟಾ ಮಾರಾಟವಿಲ್ಲ:</b> ನಿಮ್ಮ ಅಥವಾ ವಿದ್ಯಾರ್ಥಿಗಳ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಗಳನ್ನು ಯಾವುದೇ ಜಾಹೀರಾತು ಸಂಸ್ಥೆಗಳಿಗೆ ಮಾರಾಟ ಮಾಡಲಾಗುವುದಿಲ್ಲ.</li><li><b>ಸುರಕ್ಷಿತ ವಾಟ್ಸಾಪ್ ಕನೆಕ್ಷನ್:</b> ಎಲ್ಲಾ ಬಿಲ್ಲಿಂಗ್ ರಸೀದಿಗಳನ್ನು ಅತ್ಯಂತ ಸುರಕ್ಷಿತ ಕ್ಲೌಡ್ ಎಪಿಐ ಮೂಲಕ ರವಾನಿಸಲಾಗುತ್ತದೆ.</li></ul>`,
+            securityContent: `<h3>ಡೇಟಾ ಸುರಕ್ಷತಾ ಪ್ರೋಟೋಕಾಲ್</h3><p>HUDKO ULTRA ERP ನಿಮ್ಮ ಪಿಜಿ ಬಿಸಿನೆಸ್‌ನ ಪ್ರತಿಯೊಂದು ಮಾಹಿತಿಯನ್ನು ಅತ್ಯಂತ ಸುರಕ್ಷಿತ ಸರ್ವರ್ ಹಬ್‌ಗಳಲ್ಲಿ ಸಂರಕ್ಷಿಸುತ್ತದೆ.</p><ul><li><b>AES-256 ಬಿಟ್ ಎನ್‌ಕ್ರಿಪ್ಶನ್:</b> ವಿದ್ಯಾರ್ಥಿಗಳ ಆಧಾರ್ ಕಾರ್ಡ್, ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಮತ್ತು ಹಣದ ಲೆಕ್ಕಾಚಾರಗಳು ಮಿಲಿಟರಿ-ಗ್ರೇಡ್ ಸೆಕ್ಯುರಿಟಿಯೊಂದಿಗೆ ಲಾಕ್ ಆಗಿರುತ್ತವೆ.</li><li><b>ರಿಯಲ್-ಟೈಮ್ ಕ್ಲೌಡ್ ಬ್ಯಾಕಪ್:</b> ಪ್ರತಿ 60 ಸೆಕೆಂಡಿಗೆ ನಿಮ್ಮ ಡೇಟಾ ಆಟೋಮ್ಯಾಟಿಕ್ ಆಗಿ ಬ್ಯಾಕಪ್ ಆಗುವುದರಿಂದ ಫೋನ್ ಅಥವಾ ಕಂಪ್ಯೂಟರ್ ಹಾಳಾದರೂ ಡೇಟಾ ಡಿಲೀಟ್ ಆಗುವುದಿಲ್ಲ.</li><li><b>ಫೈರ್‌ವಾಲ್ ಪ್ರೊಟೆಕ್ಷನ್:</b> ಹ್ಯಾಕಿಂಗ್ ಮತ್ತು ಅನಧಿಕೃತ ಲಾಗಿನ್ ಯತ್ನಗಳನ್ನು ತಡೆಯಲು ಪ್ರತ್ಯೇಕ ಸೆಕ್ಯುರಿಟಿ ಶೀಲ್ಡ್ ಅಳವಡಿಸಲಾಗಿದೆ.</li></ul>`,
+            termsContent: `<h3>ಬಳಕೆಯ ನಿಯಮಗಳು ಮತ್ತು ಒಪ್ಪಂದಗಳು</h3><p>HUDKO ULTRA ERP ಸಾಫ್ಟ್‌ವೇರ್ ಲೈಸೆನ್ಸ್ ಅನ್ನು ಬಳಸುವ ಮುನ್ನ ಈ ಕೆಳಗಿನ ನಿಯಮಗಳನ್ನು ಕಡ್ಡಾಯವಾಗಿ ಪಾಲಿಸಬೇಕಾಗುತ್ತದೆ:</p><ul><li><b>ಲೈಸೆನ್ಸ್ ನಿಯಮ:</b> ನಿಮ್ಮ ಸಾಫ್ಟ್‌ವೇರ್ ಲೈಸೆನ್ಸ್ ಕೀ ಕೇವಲ ನಿಮ್ಮ ಅಧಿಕೃತ ಬ್ರಾಂಚ್‌ಗಳಿಗೆ ಮಾತ್ರ ಸೀಮಿತವಾಗಿದ್ದು, ಅದನ್ನು ದುರುಪಯೋಗಪಡಿಸಿಕೊಳ್ಳುವುದು ಕಾನೂನುಬಾಹಿರ.</li><li><b>ಗ್ಲೋಬಲ್ ಬ್ಲಾಕ್‌ಲಿಸ್ಟ್ ನಿಯಮ:</b> ಡಿಫಾಲ್ಟರ್ ನೆಟ್‌ವರ್ಕ್ ಅನ್ನು ಕೇವಲ ಭದ್ರತಾ ಪರಿಶೀಲನೆಗೆ ಮಾತ್ರ ಬಳಸಬೇಕು. ಯಾವುದೇ ಸುಳ್ಳು ಮಾಹಿತಿಯನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿದರೆ ನಿಮ್ಮ ಎಪಿಐ ಕೀ ತಕ್ಷಣ ರದ್ದಾಗುತ್ತದೆ.</li><li><b>ಸರ್ವರ್ ನಿರ್ವಹಣೆ:</b> ನಿಮ್ಮ ಪ್ಲಾನ್‌ಗೆ ಅನುಗುಣವಾಗಿ ಮಾಸಿಕ ಅಥವಾ ವಾರ್ಷಿಕ ಸರ್ವರ್ ನವೀಕರಣ (Maintenance) ಅನ್ವಯಿಸುತ್ತದೆ.</li></ul>`
         }
     };
+
+    // Terminal Emulator Script with Auto-Scroll Fix
+    const terminalLogs = document.getElementById('terminal-logs');
+    const logs = [
+        {text: "[info] Initializing Cloud Node Sync with Manipal HQ... SUCCESS", color: "#34d399"},
+        {text: "[secure] Booting central database firewall system for Nitesh Kumar Enterprise...", color: "#34d399"},
+        {text: "[alert] Room 104 : Overdue Statement Found! WhatsApp Notice Queued...", color: "#fbbf24"},
+        {text: "[prediction] AI Telemetry: 3 Residents expected to checkout in 15 Days...", color: "#60a5fa"},
+        {text: "[success] Total Ledger Profit balance generated in 0.02ms. Ready for display.", color: "#34d399"},
+        {text: "[info] Syncing secure backup layers with encrypted nodes...", color: "#a5b4fc"},
+        {text: "[secure] Firewall Locked. Global Defaulter Matrix active.", color: "#ef4444"}
+    ];
+
+    function addLog() {
+        const log = logs[Math.floor(Math.random() * logs.length)];
+        const p = document.createElement('p');
+        p.style.color = log.color;
+        p.style.marginBottom = "5px";
+        p.innerText = log.text;
+        terminalLogs.appendChild(p);
+        
+        if (terminalLogs.children.length > 20) {
+            terminalLogs.removeChild(terminalLogs.firstChild);
+        }
+        terminalLogs.scrollTop = terminalLogs.scrollHeight; 
+    }
+    setInterval(addLog, 2000);
 
     function calculateLivePrices() {
         const lang = document.getElementById('landingLangSwitcher').value;
@@ -928,6 +1007,21 @@
         document.getElementById('foot_desc').innerText = d.footDesc;
         document.getElementById('foot_btn').innerHTML = `<i class="fab fa-whatsapp me-2"></i> ` + d.footBtn;
 
+        // Legal Frame Pipeline updates
+        document.getElementById('foot_brand_desc').innerText = d.footBrandDesc;
+        document.getElementById('foot_links_title').innerHTML = d.footLinksTitle;
+        document.getElementById('link_about').innerHTML = d.linkAbout;
+        document.getElementById('link_privacy').innerHTML = d.linkPrivacy;
+        document.getElementById('link_security').innerHTML = d.linkSecurity;
+        document.getElementById('link_terms').innerHTML = d.linkTerms;
+        document.getElementById('foot_copy').innerText = d.footCopy;
+        document.getElementById('foot_support_text').innerText = d.footSupportText;
+        
+        document.getElementById('aboutModalBody').innerHTML = d.aboutContent;
+        document.getElementById('privacyModalBody').innerHTML = d.privacyContent;
+        document.getElementById('securityModalBody').innerHTML = d.securityContent;
+        document.getElementById('termsModalBody').innerHTML = d.termsContent;
+
         calculateLivePrices();
     }
 
@@ -959,7 +1053,7 @@
         collectOwnerDetails(planString, codeSpecs);
     }
 
-    function collectOwnerDetails(planName, architecturePayload) {
+    function collectOwnerDetails(planString, architecturePayload) {
         let ownerName = prompt("ನಿಮ್ಮ ಹೆಸರು ಟೈಪ್ ಮಾಡಿ / Enter Your Name:");
         if (!ownerName) return; 
 
@@ -977,7 +1071,7 @@
 
         let rawMessage = 
             `*🔥 HUDKO ULTRA ERP - NEW ORDER REGISTRATION *\n\n` +
-            `*Selected Plan:* ${planName}\n\n` +
+            `*Selected Plan:* ${planString}\n\n` +
             `*Architecture Specs:*\n${architecturePayload}\n` +
             `----------------------------------\n` +
             `*👤 Owner Name:* ${ownerName}\n` +
@@ -997,6 +1091,27 @@
         } else {
             window.location.href = whatsappUrl;
         }
+    }
+
+    function handleFooterDemo() {
+        let ownerName = prompt("ನಿಮ್ಮ ಹೆಸರು / Enter Your Name:");
+        if (!ownerName) return; 
+
+        let pgName = prompt("ನಿಮ್ಮ PG ಸಂಸ್ಥೆಯ ಹೆಸರು / Enter PG Name:");
+        if (!pgName) return;
+
+        let mobileNo = prompt("ನಿಮ್ಮ ಮೊಬೈಲ್ ನಂಬರ್ / Enter Mobile Number:");
+        if (!mobileNo) return;
+
+        let rawMessage = 
+            `*🔥 HUDKO ULTRA ERP - DEMO REQUEST *\n\n` +
+            `*👤 Owner Name:* ${ownerName}\n` +
+            `*🏢 PG Name:* ${pgName}\n` +
+            `*📞 Mobile:* ${mobileNo}\n\n` +
+            `*Message:* ನನಗೆ HUDKO ULTRA ERP ಲೈವ್ ಡೆಮೊ ಬೇಕಾಗಿದೆ.`;
+
+        let whatsappUrl = `https://wa.me/919108151310?text=${encodeURIComponent(rawMessage)}`;
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     }
 
     document.getElementById('pricing-billing-toggle').addEventListener('change', function(e) {
@@ -1019,6 +1134,7 @@
         applyLandingLanguage(e.target.value);
     });
 
+    // Initialize Language Setup on boot
     applyLandingLanguage('kn');
 </script>
 
