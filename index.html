@@ -328,9 +328,47 @@
             <span class="ms-2 small fw-bold" style="color: #64748b; font-family: monospace;">HUDKO CORE SERVER V2026.04 - LIVE</span>
         </div>
         
-        
+        <div id="terminal-logs" style="font-family: monospace; font-size: 13px; line-height: 1.6; text-align: left; height: 150px; overflow: hidden;">
+            <p style="color: #34d399; margin-bottom: 5px;">[info] Initializing Cloud Node Sync with Manipal HQ... SUCCESS</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+</style>
+
+<script>
+    const terminalLogs = document.getElementById('terminal-logs');
+    const logs = [
+        {text: "[secure] Booting central database firewall...", color: "#34d399"},
+        {text: "[alert] Room 202 : Rent Paid via UPI - ₹8,500", color: "#60a5fa"},
+        {text: "[success] WhatsApp Receipt sent to Room 202", color: "#34d399"},
+        {text: "[info] Syncing Manipal branch inventory...", color: "#a5b4fc"},
+        {text: "[alert] Room 104 : Overdue Statement Found!", color: "#fbbf24"},
+        {text: "[success] New Student Check-in detected", color: "#34d399"},
+        {text: "[info] Calculating Net Monthly Profit...", color: "#a5b4fc"}
+    ];
+
     function addLog() {
-    
+        const log = logs[Math.floor(Math.random() * logs.length)];
+        const p = document.createElement('p');
+        p.style.color = log.color;
+        p.style.marginBottom = "5px";
+        p.innerText = log.text;
+        terminalLogs.appendChild(p);
+        
+        // ಲಾಗ್ಸ್ ಜಾಸ್ತಿ ಆದ್ರೆ ಹಳೆಯದನ್ನು ಡಿಲೀಟ್ ಮಾಡಿ
+        if (terminalLogs.children.length > 6) {
+            terminalLogs.removeChild(terminalLogs.firstChild);
+        }
+    }
+    // ಪ್ರತಿ 2 ಸೆಕೆಂಡಿಗೆ ಹೊಸ ಲಾಗ್ ಬರುತ್ತದೆ
+    setInterval(addLog, 2000);
+</script>
+
+        
+
 
         <div class="mx-auto mb-4" style="max-width: 950px;">
             <div class="row g-3 justify-content-center">
