@@ -1,1 +1,715 @@
-# Landing-Page
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUDKO ULTRA ERP 2026 | Next-Gen PG & Hostel Automation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #070a13;
+            --card-dark: #131926;
+            --primary-glow: #818cf8; 
+            --accent-green: #34d399; 
+            --text-white: #ffffff;    
+            --text-light: #e2e8f0;    
+            --text-muted: #cbd5e1;    
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* High Visibility Neon & Text Styles */
+        .glow-text {
+            text-shadow: 0 0 15px rgba(129, 140, 248, 0.7);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #a5b4fc 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .navbar {
+            background: rgba(19, 25, 38, 0.95) !important;
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid #2d3748;
+        }
+        .navbar-brand, .nav-link {
+            color: var(--text-white) !important;
+        }
+
+        .hero-section {
+            padding: 150px 0 80px 0;
+            background: radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.25), transparent 70%);
+        }
+
+        /* Feature Cards - High Contrast Update */
+        .feature-card {
+            background: var(--card-dark);
+            border: 2px solid #2d3748;
+            border-radius: 24px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-glow);
+            box-shadow: 0 10px 30px rgba(129, 140, 248, 0.3);
+        }
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(129, 140, 248, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: #a5b4fc;
+            margin-bottom: 20px;
+        }
+        .feature-card h4 {
+            color: var(--text-white) !important;
+            font-weight: 700;
+        }
+        .feature-card p {
+            color: var(--text-light) !important;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Pricing Cards - Ultra Clear Visibility */
+        .price-card {
+            background: var(--card-dark);
+            border: 2px solid #2d3748;
+            border-radius: 28px;
+            padding: 40px 30px;
+            position: relative;
+        }
+        .price-card.popular {
+            border: 3px solid #818cf8;
+            box-shadow: 0 15px 40px rgba(129, 140, 248, 0.25);
+            background: linear-gradient(180deg, #131926 0%, #1a233a 100%);
+        }
+        .popular-badge {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: var(--text-white);
+            padding: 6px 22px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .price-card h2 {
+            color: #34d399 !important; 
+        }
+        .price-card ul li {
+            color: var(--text-white) !important;
+            font-weight: 600;
+        }
+
+        /* Buttons Customization */
+        .btn-gradient {
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: var(--text-white) !important;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 14px;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.5);
+            cursor: pointer;
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+        }
+        .btn-outline-custom {
+            border: 2px solid #4b5563;
+            color: var(--text-white) !important;
+            background: rgba(255,255,255,0.05);
+            padding: 15px 35px;
+            border-radius: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+        }
+        .btn-outline-custom:hover {
+            background: #2d3748;
+            border-color: var(--text-white);
+        }
+
+        /* Live Terminal */
+        .terminal-mockup {
+            background: #05070c;
+            border: 2px solid #2d3748;
+            border-radius: 20px;
+            padding: 25px;
+            font-family: monospace;
+        }
+
+        #landingLangSwitcher {
+            background: #1f2937;
+            color: var(--text-white);
+            border: 2px solid #4b5563;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+        /* Accordion High Contrast Styles */
+        .accordion-button::after {
+            filter: invert(1);
+        }
+        .accordion-button:not(.collapsed) {
+            color: var(--primary-glow) !important;
+            background-color: transparent !important;
+        }
+        .hover-white:hover {
+            color: var(--text-white) !important;
+            text-shadow: 0 0 8px rgba(255,255,255,0.5);
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-3 text-white" href="#"><i class="fas fa-bolt text-warning"></i> HUDKO <span style="color: #818cf8;">ULTRA</span></a>
+        <div class="d-flex align-items-center gap-3">
+            <select id="landingLangSwitcher">
+                <option value="kn">ಕನ್ನಡ</option>
+                <option value="en">English</option>
+            </select>
+            <a href="#pricing" class="btn btn-sm btn-gradient d-none d-sm-inline-block" id="nav_cta" style="width: auto;">ಪ್ರಾರಂಭಿಸಿ</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero-section text-center">
+    <div class="container">
+        <div class="badge bg-dark border border-primary text-white px-3 py-2 mb-4 rounded-pill fw-bold" style="font-size: 14px;" id="hero_badge">
+            🚀 NEXT-GENERATION ENTERPRISE ARCHITECTURE
+        </div>
+        <h1 class="display-4 fw-bold mb-4 text-white">
+            <span id="hero_title_1">ನಿಮ್ಮ PG ಆಟೋಮೇಷನ್ ಹ್ಯಾಂಡಲ್ ಮಾಡಲು</span> <br>
+            <span class="gradient-text glow-text" id="hero_title_2">HUDKO ULTRA ERP 2026</span>
+        </h1>
+        <p class="lead text-light mx-auto mb-5 fw-normal" style="max-width: 800px; font-size: 20px; color: var(--text-light) !important;" id="hero_desc">
+            ಮ್ಯಾನುವಲ್ ಲೆಕ್ಕಾಚಾರ ಬಿಟ್ಟುಬಿಡಿ. ವಿದ್ಯಾರ್ಥಿ ದಾಖಲಾತಿ, ಬಯೋಮೆಟ್ರಿಕ್ ಭದ್ರತೆ, ಆಟೋ-ಪೈಲಟ್ ಬಾಡಿಗೆ ಕಲೆಕ್ಷನ್ ಮತ್ತು ವೆಂಡರ್ ಬಿಲ್ಲಿಂಗ್ ಅನ್ನು ಒಂದೇ ಒಂದು ಸುರಕ್ಷಿತ ಕ್ಲೌಡ್ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಮೂಲಕ ನಿಯಂತ್ರಿಸಿ.
+        </p>
+        
+        <div class="d-flex justify-content-center gap-3 mb-4 flex-wrap">
+            <a href="#pricing" class="btn btn-gradient btn-lg px-4 py-3" id="hero_btn_main" style="width: auto;"><i class="fas fa-rocket me-2"></i> ಲೈವ್ ಡೆಮೊ ಆಕ್ಟಿವೇಟ್ ಮಾಡಿ</a>
+            <a href="#features" class="btn btn-outline-custom btn-lg px-4 py-3" id="hero_btn_sub" style="width: auto;"><i class="fas fa-layer-group me-2"></i> ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ವೀಕ್ಷಿಸಿ</a>
+        </div>
+
+        <div class="mx-auto mb-4" style="max-width: 950px;">
+            <div class="row g-3 justify-content-center">
+                <div class="col-6">
+                    <div class="p-3 rounded-4 border border-secondary text-center" style="background: var(--card-dark); border: 2px solid #2d3748 !important;">
+                        <div class="text-warning mb-1" style="font-size: 24px;"><i class="fas fa-hotel"></i></div>
+                        <h3 class="fw-bold text-warning glow-text mb-0">50+</h3>
+                        <span class="fw-bold small tracking-wider d-block" id="scale_stat_1" style="font-size: 13px; color: #34d399 !important;">ಪಿಜಿ ಬ್ರಾಂಚ್‌ಗಳ ನೆಟ್‌ವರ್ಕ್</span>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="p-3 rounded-4 border border-secondary text-center" style="background: var(--card-dark); border: 2px solid #2d3748 !important;">
+                        <div class="text-info mb-1" style="font-size: 24px;"><i class="fas fa-bed"></i></div>
+                        <h3 class="fw-bold text-info glow-text mb-0">2500+</h3>
+                        <span class="fw-bold small tracking-wider d-block" id="scale_stat_2" style="font-size: 13px; color: #f59e0b !important;">ಲೈವ್  ಬೆಡ್ ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="border border-secondary rounded-4 p-4 mx-auto" style="max-width: 950px; background-color: var(--card-dark); border: 2px solid #2d3748 !important;">
+            <div class="row text-center text-white">
+                <div class="col-md-3 border-end border-secondary mb-3 mb-md-0">
+                    <h3 class="fw-bold text-white glow-text">99.99%</h3>
+                    <span class="fw-bold text-white" id="stat_1">ಕ್ಲೌಡ್  ಅಪ್ಟೈಮ್ ಗ್ಯಾರಂಟಿ</span>
+                </div>
+                <div class="col-md-3 border-end border-secondary mb-3 mb-md-0">
+                    <h3 class="fw-bold text-success">Automated</h3>
+                    <span class="fw-bold text-white" id="stat_2">ವಾಟ್ಸಾಪ್ ಬಿಲ್ಲಿಂಗ್ ಅಲರ್ಟ್</span>
+                </div>
+                <div class="col-md-3 border-end border-secondary mb-3 mb-md-0">
+                    <h3 class="fw-bold text-warning">AI-Based</h3>
+                    <span class="fw-bold text-white" id="stat_3">ಚೆಕ್‌ಔಟ್ ಮುನ್ಸೂಚನೆ ಎಂಜಿನ್</span>
+                </div>
+                <div class="col-md-3">
+                    <h3 class="fw-bold text-danger">Firewall Locked</h3>
+                    <span class="fw-bold text-white" id="stat_4">ಗ್ಲೋಬಲ್ ಡಿಫಾಲ್ಟರ್ ನೆಟ್‌ವರ್ಕ್</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features" class="py-5">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold display-5 text-white" id="feat_section_title">ಅಪ್ರತಿಮ ಹಾರ್ಡ್‌ವೇರ್ ಮತ್ತು ಸಾಫ್ಟ್‌ವೇರ್ ಶಕ್ತಿ</h2>
+            <p class="text-light fs-5" id="feat_section_desc">ಯಾವುದೇ ಸಾಮಾನ್ಯ ಸಾಫ್ಟ್‌ವೇರ್ ನೀಡದ ಅತ್ಯಂತ ಮುಂದುವರಿದ ಎಂಟರ್‌ಪ್ರೈಸ್ ಕಂಟ್ರೋಲ್ಸ್ ಇಲ್ಲಿದೆ.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-share-nodes"></i></div>
+                    <h4 id="f1_t">ಮಲ್ಟಿ-ಬ್ರಾಂಚ್ ಸಿಂಕ್ ನೆಟ್‌ವರ್ಕ್</h4>
+                    <p id="f1_d">ಮಣಿಪಾಲ್, ಉಡುಪಿ ಅಥವಾ ಕರ್ನಾಟಕದ ಯಾವುದೇ ಮೂಲೆಯಲ್ಲಿದ್ದರೂ ನಿಮ್ಮ ಎಲ್ಲಾ ಪಿಜಿ ಬ್ರಾಂಚ್‌ಗಳ ಕಂಪ್ಲೀಟ್ ಕಂಟ್ರೋಲ್ ಒಂದೇ ಲಾಗಿನ್‌ನಲ್ಲಿ ಸಿಗುತ್ತದೆ.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-comment-dollar"></i></div>
+                    <h4 id="f2_t">ಸ್ಮಾರ್ಟ್ ವಾಟ್ಸಾಪ್ ರಸೀದಿಗಳು</h4>
+                    <p id="f2_d">ಯಾವುದೇ ಮ್ಯಾನುವಲ್ ಮೆಸೇಜ್ ಬೇಡ. ಒಂದೇ ಕ್ಲಿಕ್‌ನಲ್ಲಿ ಸುಂದರವಾದ ಡಿಜಿಟಲ್ ಪಾವತಿ ರಸೀದಿಗಳು ಮತ್ತು ಬಾಕಿ ಅಲರ್ಟ್‌ಗಳು ನೇರವಾಗಿ ವಿದ್ಯಾರ್ಥಿಗಳ ವಾಟ್ಸಾಪ್ ನಂಬರ್‌ಗೆ ತಲುಪುತ್ತವೆ.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-virus"></i></div>
+                    <h4 id="f3_t">ಗ್ಲೋಬಲ್ ಬ್ಲಾಕ್‌ಲಿಸ್ಟ್ ಫೈರ್‌ವಾಲ್</h4>
+                    <p id="f3_d">ಬಾಡಿಗೆ ಕಟ್ಟದೆ ಮೋಸ ಮಾಡಿ ಓಡಿಹೋಗುವ ಫ್ರಾಡ್ಸ್ ಮತ್ತು ಡಿಫಾಲ್ಟರ್‌ಗಳ ಸುರಕ್ಷಿತ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿದ ಐಡಿ ಟೋಕನ್ ನೆಟ್‌ವರ್ಕ್ ಅನ್ನು ಇಡೀ充ಂಟ್ರಲ್ ಹಬ್‌ನಲ್ಲಿ ತಕ್ಷಣ ಬ್ಲಾಕ್ ಮಾಡಿ.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-utensils"></i></div>
+                    <h4 id="f4_t">ಮೆಸ್ ಕ್ಯಾಟರಿಂಗ್ ವೋಟಿಂಗ್ ಪೋಲ್</h4>
+                    <p id="f4_d">ಇಂದಿನ ಅಡುಗೆ ಮೆನು ಬ್ರಾಡ್‌ಕಾಸ್ಟ್ ಮಾಡಿ. ಯಾವ ವಿದ್ಯಾರ್ಥಿ ಊಟ ಸ್ಕಿಪ್ ಮಾಡುತ್ತಿದ್ದಾರೆ ಎಂಬುದನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ ಪ್ರತಿನಿತ್ಯ ಸಾವಿರಾರು ರೂಪಾಯಿ ಆಹಾರದ ವೆಚ್ಚವನ್ನು ಉಳಿಸಿ.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-calculator"></i></div>
+                    <h4 id="f5_t">ವೆಂಡರ್ ಅಕೌಂಟಿಂಗ್ ಲೆಡ್ಜರ್</h4>
+                    <p id="f5_d">ದಿನಸಿ ಸಾಮಗ್ರಿಗಳು, ಹಾಲಿನ ಡೈರಿ ವೆಂಡರ್‌ಗಳ ಲೆಕ್ಕಾಚಾರ ಮತ್ತು ದಿನನಿತ್ಯದ ಸಣ್ಣ-ಪುಟ್ಟ ಖರ್ಚುಗಳನ್ನು ಆಟೋಮ್ಯಾಟಿಕ್ ಆಗಿ ಕರಾರುವಾಕ್ಕಾಗಿ ಕರಡು ಮಾಡಿ ನಿವ್ವಳ ಲಾಭದ ಗ್ರಾಫ್ ಪ್ರದರ್ಶಿಸುತ್ತದೆ.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-door-open"></i></div>
+                    <h4 id="f6_t">ಬಯೋಮೆಟ್ರಿಕ್ ಗೇಟ್ ಅಲರ್ಟ್ ಎಂಜಿನ್</h4>
+                    <p id="f6_d">ನಿಗದಿತ ಕರ್ಫ್ಯೂ ಸಮಯದ ನಂತರವೂ ವಿದ್ಯಾರ್ಥಿ ಪಿಜಿ ಒಳಗಡೆ ಬರದಿದ್ದರೆ, ಪೋಷಕರ ಮೊಬೈಲ್‌ಗೆ ಆಟೋಮ್ಯಾಟಿಕ್ ಆಗಿ ನೈಜ-ಸಮಯದ ಸೆಕ್ಯುರಿಟಿ ಲಾಗ್ ಟ್ರಾನ್ಸ್‌ಮಿಷನ್ ಕಳುಹಿಸಿ.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-4">
+    <div class="container">
+        <div class="terminal-mockup mx-auto" style="max-width: 800px;">
+            <div class="d-flex gap-2 mb-3">
+                <span style="width:12px;height:12px;border-radius:50%;background:#ef4444"></span>
+                <span style="width:12px;height:12px;border-radius:50%;background:#f59e0b"></span>
+                <span style="width:12px;height:12px;border-radius:50%;background:#10b981"></span>
+                <span class="text-white ms-2 font-monospace" style="font-size:12px;">HUDKO CORE SERVER V2026.04 - LIVE</span>
+            </div>
+            <div class="font-monospace style-code" style="font-size: 14px; line-height: 1.6; color: #34d399;">
+                [info] Initializing Cloud Node Sync with Manipal HQ... SUCCESS<br>
+                [secure] Booting central database firewall system for Nitesh Kumar Enterprise...<br>
+                <span class="text-warning">[alert] Room 104 : Overdue Statement Found! WhatsApp Notice Queued...</span><br>
+                <span class="text-info">[prediction] AI Telemetry: 3 Residents expected to checkout in 15 Days...</span><br>
+                [success] Total Ledger Profit balance generated in 0.02ms. Ready for display.
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="pricing" class="py-5">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold display-5 text-white" id="price_title">ನಿಮ್ಮ ಬಿಸಿನೆಸ್‌ಗೆ ಸೂಕ್ತವಾದ ಕಮರ್ಷಿಯಲ್ ಲೈಸೆನ್ಸ್ ಆರಿಸಿ</h2>
+            <p class="text-light fs-5" id="price_desc">ಯಾವುದೇ ಹಿಡನ್ ಚಾರ್ಜ್ ಇಲ್ಲ. ಲೈಫ್‌ಟೈಮ್ ಸೆಕ್ಯೂರ್ ಸರ್ವರ್ ಕನೆಕ್ಟಿವಿಟಿ ಪ್ಯಾಕೇಜ್‌ಗಳು.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="price-card">
+                    <h5 class="text-warning fw-bold mb-2">Starter Tier</h5>
+                    <h2 class="fw-bold mb-3">₹499 <span class="fs-6 text-white" id="p1_per">/ ತಿಂಗಳಿಗೆ</span></h2>
+                    <p class="text-light small mb-4" id="p1_desc">ಸಣ್ಣ ಪ್ರಮಾಣದ ಏಕೈಕ ಪಿಜಿ ಬ್ರಾಂಚ್ ಮ್ಯಾನೇಜ್ ಮಾಡಲು ಸೂಕ್ತವಾಗಿದೆ.</p>
+                    <hr class="border-secondary my-4">
+                    <ul class="list-unstyled space-y-3 mb-4" style="line-height: 2.3;">
+                        <li><i class="fas fa-check text-success me-2"></i> 1 PG Branch Locked</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Up to 30 Bed Registration</li>
+                        <li><i class="fas fa-check text-success me-2"></i> WhatsApp Due Alerts & Receipts</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Maintenance Complaints Box</li>
+                    </ul>
+                    <button onclick="collectOwnerDetails('Starter Tier (₹499)')" class="btn btn-outline-custom mt-2" id="p1_btn">ಸ್ಟಾರ್ಟರ್ ನೋಡ್ ಆಕ್ಟಿವೇಟ್ ಮಾಡಿ</button>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="price-card popular">
+                    <div class="popular-badge" id="popular_label">ಅತ್ಯಂತ ಜನಪ್ರಿಯ</div>
+                    <h5 class="text-white fw-bold mb-2" style="color: #a5b4fc !important;">Professional Pro</h5>
+                    <h2 class="fw-bold mb-3">₹999 <span class="fs-6 text-white" id="p2_per">/ ತಿಂಗಳಿಗೆ</span></h2>
+                    <p class="text-light small mb-4" id="p2_desc">ಬೆಳೆಯುತ್ತಿರುವ ಮತ್ತು ಮಲ್ಟಿಪಲ್ ಕಂಟ್ರೋಲ್ ಹೊಂದಿರುವ ಬಿಸಿನೆಸ್‌ಗಳಿಗಾಗಿ.</p>
+                    <hr class="border-secondary my-4">
+                    <ul class="list-unstyled space-y-3 mb-4" style="line-height: 2.3;">
+                        <li><i class="fas fa-check text-success me-2"></i> <b>Unlimited PG Branches</b></li>
+                        <li><i class="fas fa-check text-success me-2"></i> Up to 100 Active Bed Space</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Global Blacklist Firewall</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Mess Catering Voting</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Biometric Curfew Gate</li>
+                    </ul>
+                    <button onclick="collectOwnerDetails('Professional Pro (₹999)')" class="btn btn-gradient mt-2" id="p2_btn">ಪ್ರೊ ಕನ್ಸೋಲ್ ಆಕ್ಟಿವೇಟ್ ಮಾಡಿ</button>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="price-card">
+                    <h5 class="text-warning fw-bold mb-2">Ultra Enterprise</h5>
+                    <h2 class="fw-bold mb-3">₹1499 <span class="fs-6 text-white" id="p3_per">/ ತಿಂಗಳಿಗೆ</span></h2>
+                    <p class="text-light small mb-4" id="p3_desc">ದೊಡ್ಡ ಸಾಮರ್ಥ್ಯದ ನೆಟ್‌ವರ್ಕ್ ಬಿಸಿನೆಸ್ ಚೈನ್ ಸಾಮ್ರಾಜ್ಯಗಳಿಗಾಗಿ.</p>
+                    <hr class="border-secondary my-4">
+                    <ul class="list-unstyled space-y-3 mb-4" style="line-height: 2.3;">
+                        <li><i class="fas fa-check text-success me-2"></i> <b>Unlimited Branches Unlocked</b></li>
+                        <li><i class="fas fa-check text-success me-2"></i> <b>Unlimited Bed Limits Unlocked</b></li>
+                        <li><i class="fas fa-check text-success me-2"></i> Dedicated Server Node</li>
+                        <li><i class="fas fa-check text-success me-2"></i> 24/7 VIP Engineering Support</li>
+                    </ul>
+                    <button onclick="collectOwnerDetails('Ultra Enterprise (₹1499)')" class="btn btn-outline-custom mt-2" id="p3_btn">ಅಲ್ಟ್ರಾ ನೋಡ್ ಆಕ್ಟಿವೇಟ್ ಮಾಡಿ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="faq" class="py-5 border-top border-secondary" style="background-color: var(--bg-dark);">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold display-5 text-white" id="faq_title">ಪದೇ ಪದೇ ಕೇಳಲಾಗುವ ಪ್ರಶ್ನೆಗಳು (FAQ)</h2>
+            <p class="text-light fs-5" id="faq_desc">HUDKO ULTRA ERP ಬಗ್ಗೆ ನಿಮಗಿರುವ ಗೊಂದಲಗಳಿಗೆ ಇಲ್ಲಿದೆ ನೇರ ಉತ್ತರ.</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="accordion accordion-flush" id="faqAccordion" style="background: transparent;">
+                    
+                    <div class="accordion-item bg-transparent border-bottom border-secondary mb-3">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-transparent text-white fw-bold fs-5 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" id="q1_t">
+                                📌 ಈ ಸಾಫ್ಟ್‌ವೇರ್ ಮೊಬೈಲ್‌ನಲ್ಲಿ ಕೆಲಸ ಮಾಡುತ್ತದೆಯೇ?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-light" style="line-height: 1.7;" id="q1_d">
+                                ಹೌದು, HUDKO ULTRA ಕಂಪ್ಲೀಟ್ಲಿ ಕ್ಲೌಡ್-ಬೇಸ್ಡ್ ಮತ್ತು ರೆಸ್ಪಾನ್ಸಿವ್ ಆಗಿರುವುದರಿಂದ ನೀವು ಯಾವುದೇ ಮೊಬೈಲ್, ಟ್ಯಾಬ್ಲೆಟ್ ಅಥವಾ ಕಂಪ್ಯೂಟರ್ ಮೂಲಕ ಜಗತ್ತಿನ ಯಾವುದೇ ಮೂಲೆಯಿಂದ ಆಪರೇಟ್ ಮಾಡಬಹುದು.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-transparent border-bottom border-secondary mb-3">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-transparent text-white fw-bold fs-5 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" id="q2_t">
+                                📌 ವಾಟ್ಸಾಪ್ ಅಲರ್ಟ್‌ಗಳಿಗೆ ನಾವು ಬೇರೆ ಪಾವತಿ ಮಾಡಬೇಕೇ?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-light" style="line-height: 1.7;" id="q2_d">
+                                ಇಲ್ಲ, ನಿಮ್ಮ ಮಂತ್ಲಿ ಲೈಸೆನ್ಸ್ ಪ್ಯಾಕೇಜ್‌ನಲ್ಲೇ ಆಟೋಮೇಟೆಡ್ ವಾಟ್ಸಾಪ್ ರಸೀದಿಗಳು ಮತ್ತು ಡ್ಯೂ ನೋಟಿಫಿಕೇಶನ್‌ಗಳ ಎಂಜಿನ್ ಇಂಟಿಗ್ರೇಟ್ ಆಗಿರುತ್ತದೆ. ಯಾವುದೇ ಹಿಡನ್ ಚಾರ್ಜಸ್ ಇರುವುದಿಲ್ಲ.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-transparent border-bottom border-secondary mb-3">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-transparent text-white fw-bold fs-5 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" id="q3_t">
+                                📌 ಗ್ಲೋಬಲ್ ಬ್ಲಾಕ್‌ಲಿಸ್ಟ್ ಫೈರ್‌ವಾಲ್ ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-light" style="line-height: 1.7;" id="q3_d">
+                                ಬಾಡಿಗೆ ಹಣ ನೀಡದೆ ಅಥವಾ ಗಲಾಟೆ ಮಾಡಿ ಪಿಜಿಯಿಂದ ಓಡಿಹೋಗುವ ಡಿಫಾಲ್ಟರ್‌ಗಳ ವಿವರವನ್ನು ನಮ್ಮ ಸೆಂಟ್ರಲ್ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗುತ್ತದೆ. ನಿಮ್ಮ ಬ್ರಾಂಚ್‌ಗೆ ಅಂತಹ ವ್ಯಕ್ತಿ ಬಂದಾಗ ಅವರ ದಾಖಲೆ ಮ್ಯಾಚ್ ಆದಲ್ಲಿ ಸಿಸ್ಟಂ ತಕ್ಷಣ ನಿಮ್ಮನ್ನು ಅಲರ್ಟ್ ಮಾಡುತ್ತದೆ.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-dark text-center py-5 border-top border-secondary" style="background-color: #0c101a !important;">
+    <div class="container">
+        <h3 class="fw-bold text-white mb-3" id="foot_title">ಇನ್ನೇಕೆ ಕಾಯುತ್ತಿದ್ದೀರಾ? ನಿಮ್ಮ ಹಳೆಯ ಲೆಕ್ಕದ ಬುಕ್‌ಗಳಿಗೆ ಗುಡ್‌ಬೈ ಹೇಳಿ!</h3>
+        <p class="text-light mb-4 mx-auto" style="max-width: 600px;" id="foot_desc">HUDKO ULTRA ERP ನೊಂದಿಗೆ ನಿಮ್ಮ ವ್ಯವಹಾರದ ಲಾಭವನ್ನು ಕನಿಷ್ಠ 20% ಹೆಚ್ಚಿಸಿಕೊಳ್ಳಿ.</p>
+        
+        <button onclick="collectOwnerDetails('General Demo/Inquiry Request')" class="btn btn-gradient btn-lg px-5 py-3 mb-4" id="foot_btn" style="width: auto;">
+            <i class="fab fa-whatsapp me-2"></i> WhatsApp ಮೂಲಕ ಲೈವ್ ಡೆಮೊ ಪಡೆಯಿರಿ
+        </button>
+        
+        <div class="d-flex justify-content-center gap-4 mb-4 flex-wrap">
+            <a href="#" class="text-secondary text-decoration-none fw-bold hover-white" data-bs-toggle="modal" data-bs-target="#aboutModal" id="link_about">About Us</a>
+            <a href="#" class="text-secondary text-decoration-none fw-bold hover-white" data-bs-toggle="modal" data-bs-target="#termsModal" id="link_terms">Terms & Conditions</a>
+            <a href="#" class="text-secondary text-decoration-none fw-bold hover-white" data-bs-toggle="modal" data-bs-target="#privacyModal" id="link_privacy">Privacy Policy</a>
+        </div>
+
+        <div class="text-secondary small fw-bold">
+            &copy; 2026 HUDKO Media Platforms. Engineered & Directed by Nitesh Kumar. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<div class="modal fade" id="aboutModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered text-start">
+        <div class="modal-content text-white border border-secondary" style="background-color: var(--card-dark) !important;">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title fw-bold text-primary">About HUDKO ULTRA</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>HUDKO ULTRA ERP 2026 ಎಂಬುದು ಕರ್ನಾಟಕದ ಪಿಜಿ ಮತ್ತು ಹಾಸ್ಟೆಲ್ ಮಾಲೀಕರಿಗಾಗಿಯೇ ರೂಪಿಸಲಾದ ಅತ್ಯಾಧುನಿಕ ಕ್ಲೌಡ್ ಮ್ಯಾನೇಜ್ಮೆಂಟ್ ಸಾಫ್ಟ್‌ವೇರ್ ಆಗಿದೆ. ಮ್ಯಾನುವಲ್ ಕೆಲಸಗಳನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಕಡಿಮೆ ಮಾಡಿ, ಡಿಜಿಟಲ್ ಪಾವತಿ, ವಾಟ್ಸಾಪ್ ನೋಟಿಫಿಕೇಶನ್ ಮತ್ತು ಬಯೋಮೆಟ್ರಿಕ್ ಸೆಕ್ಯುರಿಟಿಯನ್ನು ಆಟೋಮೇಟ್ ಮಾಡುವುದು ನಮ್ಮ ಮುಖ್ಯ ಗುರಿ.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered text-start">
+        <div class="modal-content text-white border border-secondary" style="background-color: var(--card-dark) !important;">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title fw-bold text-warning">Terms & Conditions</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" style="font-size: 14px; line-height: 1.8;">
+                <p>1. HUDKO ಸಾಫ್ಟ್‌ವೇರ್ ಸಬ್‌ಸ್ಕ್ರಿಪ್ಷನ್ ಆಧಾರಿತವಾಗಿದ್ದು, ಮಾಸಿಕ ಅಥವಾ ವಾರ್ಷಿಕ ಪಾವತಿಯ ನಂತರವೇ ಲೈವ್ ಸರ್ವರ್ ಸಕ್ರಿಯಗೊಳ್ಳುತ್ತದೆ.</p>
+                <p>2. ಯಾವುದೇ ರೀತಿಯ ಡೇಟಾ ದುರುಪಯೋಗ ಅಥವಾ ಅಕ್ರಮ ಚಟುವಟಿಕೆಗಳು ಕಂಡುಬಂದಲ್ಲಿ ಲೈಸೆನ್ಸ್ ಅನ್ನು ತಕ್ಷಣವೇ ರದ್ದುಗೊಳಿಸುವ ಹಕ್ಕನ್ನು ಸಂಸ್ಥೆ ಕಾಯ್ದಿರಿಸಿದೆ.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="privacyModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered text-start">
+        <div class="modal-content text-white border border-secondary" style="background-color: var(--card-dark) !important;">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title fw-bold text-success">Privacy Policy</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" style="font-size: 14px; line-height: 1.8;">
+                <p>ನಿಮ್ಮ ಪಿಜಿ ವಿದ್ಯಾರ್ಥಿಗಳ ವಿವರಗಳು, ದಾಖಲೆಗಳು ಮತ್ತು ವೆಂಡರ್ ಟ್ರಾನ್ಸಾಕ್ಷನ್ ಡೇಟಾಗಳು ನಮ್ಮ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿದ ಸರ್ವರ್‌ಗಳಲ್ಲಿ ಸಂಪೂರ್ಣವಾಗಿ ಸುರಕ್ಷಿತವಾಗಿರುತ್ತವೆ. ಈ ಡೇಟಾವನ್ನು ಯಾವುದೇ ಮೂರನೇ ವ್ಯಕ್ತಿಗಳಿಗೆ (Third Party) ಹಂಚಿಕೊಳ್ಳಲಾಗುವುದಿಲ್ಲ.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const contentDictionary = {
+        en: {
+            navCta: "Get Started",
+            heroBadge: "🚀 NEXT-GENERATION ENTERPRISE ARCHITECTURE",
+            heroT1: "To handle and completely automate your PG",
+            heroT2: "HUDKO ULTRA ERP 2026",
+            heroDesc: "Ditch manual logs. Supercharge your operations with single-dashboard tracking for secure resident registration, automated WhatsApp invoices, dynamic catering poll insights, and rigorous vendor accounting.",
+            heroBtnMain: "Activate Live Demo",
+            heroBtnSub: "Explore Core Node Matrix",
+            s1: "Cloud Uptime Guaranteed", s2: "WhatsApp Billing Alerts", s3: "AI Checkout Predictor", s4: "Global Defaulter Network",
+            featSecTitle: "Uncompromising Software & Hardware Mastery",
+            featSecDesc: "Experience premium enterprise components designed for flawless execution.",
+            f1t: "Multi-Branch Sync Network", f1d: "No matter where your setups are based in Karnataka, manage data rooms seamlessly across branches under one master console key.",
+            f2t: "Smart WhatsApp Invoices", f2d: "Zero manual friction. Push gorgeous billing structures and overdue logs directly to any resident's WhatsApp channel instantly.",
+            f3t: "Global Defaulter Firewall", f3d: "Shield your ecosystem. Intercept and block blacklisted absconders using an aggregated secure encrypted ID token mesh.",
+            f4t: "Mess Catering Voting Poll", f4d: "Publish daily dishes. Track catering opt-outs in real time to downsize food production wastage and save thousands in grocery cash.",
+            f5t: "Vendor Accounting Ledger", f5d: "Log bulk delivery units like milk and groceries. Keep your cash-flows accurate with instant net profit computing engines.",
+            f6t: "Biometric Curfew Alerts", f6d: "Enhance safety thresholds. If a tenant bypasses curfew lockouts, the system queues automatic security logs straight to guardians.",
+            scale1: "PG Branches Network",
+            scale2: "Live Bed Space Managed",
+            pTitle: "Choose the Perfect Architectural License",
+            pDesc: "No underlying setup fees. Lifetime persistent data storage layers customized for your growth scales.",
+            p1Per: "/ month", p2Per: "/ month", p3Per: "/ month",
+            p1Desc: "Perfect for single location independent hostel spaces.",
+            p2Desc: "Engineered for high-volume networks needing deep restriction modules.",
+            p3Desc: "The pinnacle of automation for vast hospitality business empires.",
+            p1Btn: "Activate Starter Node", p2Btn: "Activate Pro Console", p3Btn: "Activate Ultra Node",
+            popLabel: "MOST POPULAR",
+            faqTitle: "Frequently Asked Questions (FAQ)",
+            faqDesc: "Clear your doubts instantly with straight answers regarding HUDKO ULTRA ERP architecture.",
+            q1t: "📌 Does this software work on mobile devices?",
+            q1d: "Yes, HUDKO ULTRA is entirely cloud-based and responsive. You can flawlessly access and manage your property grids via any mobile, tablet, or desktop interface from anywhere globally.",
+            q2t: "📌 Do we have to pay extra for WhatsApp automation alerts?",
+            q2d: "No, automated billing structures, instant digital receipts, and curfew logs are natively backed into your license tier subscription without hidden delivery metrics.",
+            q3t: "📌 How does the Global Defaulter Firewall system perform?",
+            q3d: "If a tenant absconds without sorting clear bills, their system profile token syncs with our secure network hub. If they attempt enrollment under your nodes, the console issues warning telemetries immediately.",
+            footTitle: "Ready to Accelerate? Retire Your Outdated Ledgers Today!",
+            footDesc: "Scale your revenue baselines up by 20% using the precision mechanics of HUDKO ULTRA ERP.",
+            footBtn: "Connect and Request Live Demo via WhatsApp"
+        },
+        kn: {
+            navCta: "ಪ್ರಾರಂಭಿಸಿ",
+            heroBadge: "🚀 NEXT-GENERATION ENTERPRISE ARCHITECTURE",
+            heroT1: "ನಿಮ್ಮ PG ಆಟೋಮೇಷನ್ ಹ್ಯಾಂಡಲ್ ಮಾಡಲು",
+            heroT2: "HUDKO ULTRA ERP 2026",
+            heroDesc: "ಮ್ಯಾನುವಲ್ ಲೆಕ್ಕಾಚಾರ ಬಿಟ್ಟುಬಿಡಿ. ವಿದ್ಯಾರ್ಥಿ ದಾಖಲಾತಿ, ಬಯೋಮೆಟ್ರಿಕ್ ಭದ್ರತೆ, ಆಟೋ-ಪೈಲಟ್ ಬಾಡಿಗೆ ಕಲೆಕ್ಷನ್ ಮತ್ತು ವೆಂಡರ್ ಬಿಲ್ಲಿಂಗ್ ಅನ್ನು ಒಂದೇ ಒಂದು ಸುರಕ್ಷಿತ ಕ್ಲೌಡ್ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಮೂಲಕ ನಿಯಂತ್ರಿಸಿ.",
+            heroBtnMain: "ಲೈವ್ ಡೆಮೊ ಆಕ್ಟಿವೇಟ್ ಮಾಡಿ",
+            heroBtnSub: "ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
+            s1: "ಕ್ಲೌಡ್  ಅಪ್ಟೈಮ್ ಗ್ಯಾರಂಟಿ", s2: "ವಾಟ್ಸಾಪ್ ಬಿಲ್ಲಿಂಗ್ ಅಲರ್ಟ್", s3: "AI-Based ಮುನ್ಸೂಚನೆ", s4: "ಗ್ಲೋಬಲ್ ಡಿಫಾಲ್ಟರ್ ನೆಟ್‌ವರ್ಕ್",
+            featSecTitle: "ಅಪ್ರತಿಮ ಹಾರ್ಡ್‌ವೇರ್ ಮತ್ತು ಸಾಫ್ಟ್‌ವೇರ್ ಶಕ್ತಿ",
+            featSecDesc: "ಯಾವುದೇ ಸಾಮಾನ್ಯ ಸಾಫ್ಟ್‌ವೇರ್ ನೀಡದ ಅತ್ಯಂತ ಮುಂದುವರಿದ ಎಂಟರ್‌ಪ್ರೈಸ್ ಕಂಟ್ರೋಲ್ಸ್ ಇಲ್ಲಿದೆ.",
+            f1t: "ಮಲ್ಟಿ-ಬ್ರಾಂಚ್ ಸಿಂಕ್ ನೆಟ್‌ವರ್ಕ್", f1d: "ಮಣಿಪಾಲ್, ಉಡುಪಿ ಅಥವಾ ಕರ್ನಾಟಕದ ಯಾವುದೇ ಮೂಲೆಯಲ್ಲಿದ್ದರೂ ನಿಮ್ಮ ಎಲ್ಲಾ ಪಿಜಿ ಬ್ರಾಂಚ್‌ಗಳ ಕಂಪ್ಲೀಟ್ ಕಂಟ್ರೋಲ್ ಒಂದೇ ಲಾಗಿನ್‌ನಲ್ಲಿ ಸಿಗುತ್ತದೆ.",
+            f2t: "ಸ್ಮಾರ್ಟ್ ವಾಟ್ಸಾಪ್ ರಸೀದಿಗಳು", f2d: "ಯಾವುದೇ ಮ್ಯಾನುವಲ್ ಮೆಸೇಜ್ ಬೇಡ. ಒಂದೇ ಕ್ಲಿಕ್‌ನಲ್ಲಿ ಸುಂದರವಾದ ಡಿಜಿಟಲ್ ಪಾವತಿ ರಸೀದಿಗಳು ಮತ್ತು ಬಾಕಿ ಅಲರ್ಟ್‌ಗಳು ನೇರವಾಗಿ ವಿದ್ಯಾರ್ಥಿಗಳ ವಾಟ್ಸಾಪ್ ನಂಬರ್‌ಗೆ ತಲುಪುತ್ತವೆ.",
+            f3t: "ಗ್ಲೋಬಲ್ ಬ್ಲಾಕ್‌ಲಿಸ್ಟ್ ಫೈರ್‌ವಾಲ್", f3d: "ಬಾಡಿಗೆ ಕಟ್ಟದೆ ಮೋಸ ಮಾಡಿ ಓಡಿಹೋಗುವ ಫ್ರಾಡ್ಸ್ ಮತ್ತು ಡಿಫಾಲ್ಟರ್‌ಗಳ ಸುರಕ್ಷಿತ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿದ ಐಡಿ ಟೋಕನ್ ನೆಟ್‌ವರ್ಕ್ ಅನ್ನು ಇಡೀ ಸೆಂಟ್ರಲ್ ಹಬ್‌ನಲ್ಲಿ ತಕ್ಷಣ ಬ್ಲಾಕ್ ಮಾಡಿ.",
+            f4t: "ಮೆಸ್ ಕ್ಯಾಟರಿಂಗ್ ವೋಟಿಂಗ್ ಪೋಲ್", f4d: "ಇಂದಿನ ಅಡುಗೆ ಮೆನು ಬ್ರಾಡ್‌ಕಾಸ್ಟ್ ಮಾಡಿ. ಯಾವ ವಿದ್ಯಾರ್ಥಿ ಊಟ ಸ್ಕಿಪ್ ಮಾಡುತ್ತಿದ್ದಾರೆ ಎಂಬುದನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ ಪ್ರತಿನಿತ್ಯ ಸಾವಿರಾರು ರೂಪಾಯಿ ಆಹಾರದ ವೆಚ್ಚವನ್ನು ಉಳಿಸಿ.",
+            f5t: "ವೆಂಡರ್ ಅಕೌಂಟಿಂಗ್ ಲೆಡ್ಜರ್", f5d: "ದಿನಸಿ ಸಾಮಗ್ರಿಗಳು, ಹಾಲಿನ ಡೈರಿ ವೆಂಡರ್‌ಗಳ ಲೆಕ್ಕಾಚಾರ ಮತ್ತು ದಿನನಿತ್ಯದ ಸಣ್ಣ-ಪುಟ್ಟ ಖರ್ಚುಗಳನ್ನು ಆಟೋಮ್ಯಾಟಿಕ್ ಆಗಿ ಕರಾರುವಾಕ್ಕಾಗಿ ಕರಡು ಮಾಡಿ ನಿವ್ವಳ ಲಾಭದ ಗ್ರಾಫ್ ಪ್ರದರ್ಶಿಸುತ್ತದೆ.",
+            f6t: "ಬಯೋಮೆಟ್ರಿಕ್ ಗೇಟ್ ಅಲರ್ಟ್ ಎಂಜಿನ್", f6d: "ನಿಗದಿತ ಕರ್ಫ್ಯೂ ಸಮಯದ ನಂತರವೂ ವಿದ್ಯಾರ್ಥಿ ಪಿಜಿ ಒಳಗಡೆ ಬರದಿದ್ದರೆ, ಪೋಷಕರ ಮೊಬೈಲ್‌ಗೆ ಆಟೋಮ್ಯಾಟಿಕ್ ಆಗಿ ನೈಜ-ಸಮಯದ ಸೆಕ್ಯುರಿಟಿ ಲಾಗ್ ಟ್ರಾನ್ಸ್‌ಮಿಷನ್ ಕಳುಹಿಸಿ.",
+            scale1: "ಪಿಜಿ ಬ್ರಾಂಚ್‌ಗಳ ನೆಟ್‌ವರ್ಕ್",
+            scale2: "ಲೈವ್  ಬೆಡ್ ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್",
+            pTitle: "ನಿಮ್ಮ ಬಿಸಿನೆಸ್‌ಗೆ ಸೂಕ್ತವಾದ ಕಮರ್ಷಿಯಲ್ ಲೈಸೆನ್ಸ್ ಆರಿಸಿ",
+            pDesc: "ಯಾವುದೇ ಹಿಡನ್ ಚಾರ್ಜ್ ಇಲ್ಲ. ಲೈಫ್‌ಟೈಮ್ ಸೆಕ್ಯೂರ್ ಸರ್ವರ್ ಕನೆಕ್ಟಿವಿಟಿ ಪ್ಯಾಕೇಜ್‌ಗಳು.",
+            p1Per: "/ ತಿಂಗಳಿಗೆ", p2Per: "/ ತಿಂಗಳಿಗೆ", p3Per: "/ ತಿಂಗಳಿಗೆ",
+            p1Desc: "ಸಣ್ಣ ಪ್ರಮಾಣದ ಏಕೈಕ ಪಿಜಿ ಬ್ರಾಂಚ್ ಮ್ಯಾನೇಜ್ ಮಾಡಲು ಸೂಕ್ತವಾಗಿದೆ.",
+            p2Desc: "ಬೆಳೆಯುತ್ತಿರುವ ಮತ್ತು ಮಲ್ಟಿಪಲ್ ಕಂಟ್ರೋಲ್ ಹೊಂದಿರುವ ಬಿಸಿನೆಸ್‌ಗಳಿಗಾಗಿ.",
+            p3Desc: "ದೊಡ್ಡ ಸಾಮರ್ಥ್ಯದ ನೆಟ್‌ವರ್ಕ್ ಬಿಸಿನೆಸ್ ಚೈನ್ ಸಾಮ್ರಾಜ್ಯಗಳಿಗಾಗಿ.",
+            p1Btn: "ಸ್ಟಾರ್ಟರ್ ನೋಡ್ ಆಕ್ಟಿವೇಟ್ ಮಾಡಿ", p2Btn: "ಪ್ರೊ ಕನ್ಸೋಲ್ ಆಕ್ಟಿವೇಟ್ ಮಾಡಿ", p3Btn: "ಅಲ್ಟ್ರಾ ನೋಡ್ ಆಕ್ಟಿವೇಟ್ ಮಾಡಿ",
+            popLabel: "ಅತ್ಯಂತ ಜನಪ್ರಿಯ",
+            faqTitle: "ಪದೇ ಪದೇ ಕೇಳಲಾಗುವ ಪ್ರಶ್ನೆಗಳು (FAQ)",
+            faqDesc: "HUDKO ULTRA ERP ಬಗ್ಗೆ ನಿಮಗಿರುವ ಗೊಂದಲಗಳಿಗೆ ಇಲ್ಲಿದೆ ನೇರ ಉತ್ತರ.",
+            q1t: "📌 ಈ ಸಾಫ್ಟ್‌ವೇರ್ ಮೊಬೈಲ್‌ನಲ್ಲಿ ಕೆಲಸ ಮಾಡುತ್ತದೆಯೆ?",
+            q1d: "ಹೌದು, HUDKO ULTRA ಕಂಪ್ಲೀಟ್ಲಿ ಕ್ಲೌಡ್-ಬೇಸ್ಡ್ ಮತ್ತು ರೆಸ್ಪಾನ್ಸಿವ್ ಆಗಿರುವುದರಿಂದ ನೀವು ಯಾವುದೇ  ಮೊಬೈಲ್, ಟ್ಯಾಬ್ಲೆಟ್ ಅಥವಾ ಕಂಪ್ಯೂಟರ್ ಮೂಲಕ ಜಗತ್ತಿನ ಯಾವುದೇ ಮೂಲೆಯಿಂದ ಆಪರೇಟ್ ಮಾಡಬಹುದು.",
+            q2t: "📌 ವಾಟ್ಸಾಪ್ ಅಲರ್ಟ್‌ಗಳಿಗೆ ನಾವು ಬೇರೆ ಪಾವತಿ ಮಾಡಬೇಕೇ?",
+            q2d: "ಇಲ್ಲ, ನಿಮ್ಮ ಮಂತ್ಲಿ ಲೈಸೆನ್ಸ್ ಪ್ಯಾಕೇಜ್‌ದಲ್ಲೇ ಆಟೋಮೇಟೆಡ್ ವಾಟ್ಸಾಪ್ ರಸೀದಿಗಳು ಮತ್ತು ಡ್ಯೂ ನೋಟಿಫಿಕೇಶನ್‌ಗಳ ಎಂಜಿನ್ ಇಂಟಿಗ್ರೇಟ್ ಆಗಿರುತ್ತದೆ. ಯಾವುದೇ ಹಿಡನ್ ಚಾರ್ಜಸ್ ಇರುವುದಿಲ್ಲ.",
+            q3t: "📌 ಗ್ಲೋಬಲ್ ಬ್ಲಾಕ್‌ಲಿಸ್ಟ್ ಫೈರ್‌ವಾಲ್ ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ?",
+            q3d: "ಬಾಡಿಗೆ ಹಣ ನೀಡದೆ ಅಥವಾ ಗಲಾಟೆ ಮಾಡಿ ಪಿಜಿಯಿಂದ ಓಡಿಹೋಗುವ ಡಿಫಾಲ್ಟರ್‌ಗಳ ವಿವರವನ್ನು ನಮ್ಮ ಸೆಂಟ್ರಲ್ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗುತ್ತದೆ. ನಿಮ್ಮ ಬ್ರಾಂಚ್‌ಗೆ ಅಂತಹ ವ್ಯಕ್ತಿ ಬಂದಾಗ ಅವರ ದಾಖಲೆ ಮ್ಯಾಚ್ ಆದಲ್ಲಿ ಸಿಸ್ಟಂ ತಕ್ಷಣ ನಿಮ್ಮನ್ನು ಅಲರ್ಟ್ ಮಾಡುತ್ತದೆ.",
+            footTitle: "ಇನ್ನೇಕೆ ಕಾಯುತ್ತಿದ್ದೀರಾ? ನಿಮ್ಮ ಹಳೆಯ ಲೆಕ್ಕದ ಬುಕ್‌ಗಳಿಗೆ ಗುಡ್‌ಬೈ ಹೇಳಿ!",
+            footDesc: "HUDKO ULTRA ERP ನೊಂದಿಗೆ ನಿಮ್ಮ ವ್ಯವಹಾರದ ಲಾಭವನ್ನು ಕನಿಷ್ಠ 20% ಹೆಚ್ಚಿಸಿಕೊಳ್ಳಿ.",
+            footBtn: "WhatsApp ಮೂಲಕ ಲೈವ್ ಡೆಮೊ ಪಡೆಯಿರಿ"
+        }
+    };
+
+    function applyLandingLanguage(lang) {
+        const d = contentDictionary[lang];
+        if(!d) return;
+
+        document.getElementById('nav_cta').innerText = d.navCta;
+        document.getElementById('hero_badge').innerText = d.heroBadge;
+        document.getElementById('hero_title_1').innerText = d.heroT1;
+        document.getElementById('hero_title_2').innerText = d.heroT2;
+        document.getElementById('hero_desc').innerText = d.heroDesc;
+        document.getElementById('hero_btn_main').innerHTML = `<i class="fas fa-rocket me-2"></i> ` + d.heroBtnMain;
+        document.getElementById('hero_btn_sub').innerHTML = `<i class="fas fa-layer-group me-2"></i> ` + d.heroBtnSub;
+        
+        document.getElementById('stat_1').innerText = d.s1;
+        document.getElementById('stat_2').innerText = d.s2;
+        document.getElementById('stat_3').innerText = d.s3;
+        document.getElementById('stat_4').innerText = d.s4;
+
+        document.getElementById('feat_section_title').innerText = d.featSecTitle;
+        document.getElementById('feat_section_desc').innerText = d.featSecDesc;
+        
+        document.getElementById('f1_t').innerText = d.f1t; document.getElementById('f1_d').innerText = d.f1d;
+        document.getElementById('f2_t').innerText = d.f2t; document.getElementById('f2_d').innerText = d.f2d;
+        document.getElementById('f3_t').innerText = d.f3t; document.getElementById('f3_d').innerText = d.f3d;
+        document.getElementById('f4_t').innerText = d.f4t; document.getElementById('f4_d').innerText = d.f4d;
+        document.getElementById('f5_t').innerText = d.f5t; document.getElementById('f5_d').innerText = d.f5d;
+        document.getElementById('f6_t').innerText = d.f6t; document.getElementById('f6_d').innerText = d.f6d;
+
+        document.getElementById('scale_stat_1').innerText = d.scale1;
+        document.getElementById('scale_stat_2').innerText = d.scale2;
+
+        document.getElementById('price_title').innerText = d.pTitle;
+        document.getElementById('price_desc').innerText = d.pDesc;
+        document.getElementById('p1_per').innerText = d.p1Per;
+        document.getElementById('p2_per').innerText = d.p2Per;
+        document.getElementById('p3_per').innerText = d.p3Per;
+        document.getElementById('p1_desc').innerText = d.p1Desc;
+        document.getElementById('p2_desc').innerText = d.p2Desc;
+        document.getElementById('p3_desc').innerText = d.p3Desc;
+        document.getElementById('p1_btn').innerText = d.p1Btn;
+        document.getElementById('p2_btn').innerText = d.p2Btn;
+        document.getElementById('p3_btn').innerText = d.p3Btn;
+        document.getElementById('popular_label').innerText = d.popLabel;
+
+        document.getElementById('faq_title').innerText = d.faqTitle;
+        document.getElementById('faq_desc').innerText = d.faqDesc;
+        document.getElementById('q1_t').innerText = d.q1t; document.getElementById('q1_d').innerText = d.q1d;
+        document.getElementById('q2_t').innerText = d.q2t; document.getElementById('q2_d').innerText = d.q2d;
+        document.getElementById('q3_t').innerText = d.q3t; document.getElementById('q3_d').innerText = d.q3d;
+
+        document.getElementById('foot_title').innerText = d.footTitle;
+        document.getElementById('foot_desc').innerText = d.footDesc;
+        document.getElementById('foot_btn').innerHTML = `<i class="fab fa-whatsapp me-2"></i> ` + d.footBtn;
+    }
+
+    /* ================= DYNAMIC DETAILS COLLECTOR ENGINE ================= */
+    function collectOwnerDetails(planName) {
+        // Step 1: Collect Name
+        let ownerName = prompt("ನಿಮ್ಮ ಹೆಸರು ಟೈಪ್ ಮಾಡಿ / Enter Your Name:");
+        if (!ownerName) return; 
+
+        // Step 2: Collect PG Name
+        let pgName = prompt("ನಿಮ್ಮ PG ಸಂಸ್ಥೆಯ ಹೆಸರು / Enter PG/Hostel Name:");
+        if (!pgName) return;
+
+        // Step 3: Collect Mobile No
+        let mobileNo = prompt("ನಿಮ್ಮ ಮೊಬೈಲ್ ನಂಬರ್ / Enter Mobile Number:");
+        if (!mobileNo) return;
+
+        // Step 4: Collect Email
+        let email = prompt("ನಿಮ್ಮ ಇಮೇಲ್ ವಿಳಾಸ / Enter Email Address:");
+        if (!email) return;
+
+        // Step 5: Collect Address
+        let address = prompt("ನಿಮ್ಮ ಪೂರ್ಣ ವಿಳಾಸ / Enter Complete Address:");
+        if (!address) return;
+
+        // Structuring the message template safely with standard breaks
+        let rawMessage = 
+            `*🔥 HUDKO ULTRA ERP - NEW ORDER REGISTRATION *\n\n` +
+            `*Selected Plan:* ${planName}\n` +
+            `----------------------------------\n` +
+            `*👤 Owner Name:* ${ownerName}\n` +
+            `*🏢 PG Name:* ${pgName}\n` +
+            `*📞 Mobile No:* ${mobileNo}\n` +
+            `*📧 Email:* ${email}\n` +
+            `*📍 Address:* ${address}\n` +
+            `----------------------------------\n` +
+            `*Status:* Awaiting Live Core Node Activation.`;
+
+        let formattedMessage = encodeURIComponent(rawMessage);
+
+        // Universal wa.me format pointing to your custom node
+        let whatsappUrl = `https://wa.me/919108151310?text=${formattedMessage}`;
+        
+        // Securely open in a fresh mobile tab without being blocked by iframe sandbox restrictions
+        let win = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        if (win) {
+            win.focus();
+        } else {
+            // Unstoppable backup redirection if popups are fully locked down by browser settings
+            window.location.href = whatsappUrl;
+        }
+    }
+
+    document.getElementById('landingLangSwitcher').addEventListener('change', (e) => {
+        applyLandingLanguage(e.target.value);
+    });
+
+    // Default Initialization
+    applyLandingLanguage('kn');
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
